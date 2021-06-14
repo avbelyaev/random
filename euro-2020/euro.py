@@ -8,14 +8,14 @@ GAME_RESULTS = {
     "4) Belgium vs Russia": "3-0",
     "5) England vs Croatia": "1-0",
     "6) Austria vs North Macedonia": "3-1",
-    "7) Netherlands vs Ukraine": "",
-    "8) Scotland vs Czech Republic": "",
-    "9) Poland vs Slovakia": "",
-    "10) Spain vs Sweden": "",
+    "7) Netherlands vs Ukraine": "3-2",
+    "8) Scotland vs Czech Republic": "0-2",
+    "9) Poland vs Slovakia": "1-2",
+    "10) Spain vs Sweden": "0-0",
 }
 
 BETS_DIR = "bets"
-PLAYER_INDEX = 1
+PLAYER_NAME_INDEX = 1
 GAMES_START_FROM_INDEX = 2
 
 EXACT_SCORE_PREDICTED_POINTS = 3
@@ -29,7 +29,7 @@ WRONG_PREDICTION_POINTS = 0
 # - outcome (win or lose): 1pt
 #
 # Example:
-# Final result of the game: 1-0
+# Say, the final result of the game: 1-0
 # - you voted 1-0 -> 3 points (exact score, goal diff, outcome - everything is correct)
 # - you voted 2-1 -> 2 points (goal difference and outcome are correct)
 # - you voted 3-1 -> 1 pint (outcome is correct)
@@ -81,10 +81,11 @@ def main():
                                 game_index[column] = i
                         continue
 
-                    player = row[PLAYER_INDEX]
+                    player = row[PLAYER_NAME_INDEX]
                     if player not in player_points:
                         player_points[player] = 0
 
+                    points = 0
                     for game, index in game_index.items():
                         predicted_result = row[index]
                         actual_result = GAME_RESULTS[game]
@@ -96,8 +97,8 @@ def main():
 
                         player_points[player] += points
 
-    # sort dict by value
-    player_points_sorted = dict(sorted(player_points.items(), key=lambda item: item[1], reverse=True))
+    # sort by player name (key of the dict)
+    player_points_sorted = dict(sorted(player_points.items(), key=lambda item: item[0]))
 
     # save as csv
     with open('player-points.csv', 'w') as f:
