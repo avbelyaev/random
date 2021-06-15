@@ -1,5 +1,7 @@
 import csv
 import os
+from datetime import date
+
 
 GAME_RESULTS = {
     "1) Turkey vs Italy": "0-3",
@@ -12,6 +14,14 @@ GAME_RESULTS = {
     "8) Scotland vs Czech Republic": "0-2",
     "9) Poland vs Slovakia": "1-2",
     "10) Spain vs Sweden": "0-0",
+    "11) 🇭🇺Hungary vs Portugal 🇵🇹 ": "0-3",
+    "12) 🇫🇷 France vs Germany 🇩🇪": "",
+    "13) 🇫🇮Finland vs Russia 🇷🇺": "",
+    "14) 🇹🇷 Turkey vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿": "",
+    "15) 🇮🇹Italy vs Switzerland 🇨🇭": "",
+    "16) 🇺🇦 Ukraine vs North Macedonia 🇲🇰": "",
+    "17) 🇩🇰 Denmark vs Belgium 🇧🇪 ": "",
+    "18) 🇳🇱 Netherlands vs Austria 🇦🇺": ""
 }
 
 BETS_DIR = "bets"
@@ -85,7 +95,6 @@ def main():
                     if player not in player_points:
                         player_points[player] = 0
 
-                    points = 0
                     for game, index in game_index.items():
                         predicted_result = row[index]
                         actual_result = GAME_RESULTS[game]
@@ -101,7 +110,8 @@ def main():
     player_points_sorted = dict(sorted(player_points.items(), key=lambda item: item[0]))
 
     # save as csv
-    with open('player-points.csv', 'w') as f:
+    today = date.today().strftime("%b-%d")
+    with open(f"points/player-points-{today}.csv", 'w') as f:
         writer = csv.writer(f, delimiter=',')
 
         writer.writerow(['Player', 'Points'])
