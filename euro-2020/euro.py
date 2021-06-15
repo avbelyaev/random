@@ -15,7 +15,7 @@ GAME_RESULTS = {
     "9) Poland vs Slovakia": "1-2",
     "10) Spain vs Sweden": "0-0",
     "11) 🇭🇺Hungary vs Portugal 🇵🇹 ": "0-3",
-    "12) 🇫🇷 France vs Germany 🇩🇪": "",
+    "12) 🇫🇷 France vs Germany 🇩🇪": "1-0",
     "13) 🇫🇮Finland vs Russia 🇷🇺": "",
     "14) 🇹🇷 Turkey vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿": "",
     "15) 🇮🇹Italy vs Switzerland 🇨🇭": "",
