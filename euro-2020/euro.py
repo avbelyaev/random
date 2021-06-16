@@ -16,9 +16,9 @@ GAME_RESULTS = {
     "10) Spain vs Sweden": "0-0",
     "11) 🇭🇺Hungary vs Portugal 🇵🇹 ": "0-3",
     "12) 🇫🇷 France vs Germany 🇩🇪": "1-0",
-    "13) 🇫🇮Finland vs Russia 🇷🇺": "",
-    "14) 🇹🇷 Turkey vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿": "",
-    "15) 🇮🇹Italy vs Switzerland 🇨🇭": "",
+    "13) 🇫🇮Finland vs Russia 🇷🇺": "0-1",
+    "14) 🇹🇷 Turkey vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿": "0-2",
+    "15) 🇮🇹Italy vs Switzerland 🇨🇭": "3-0",
     "16) 🇺🇦 Ukraine vs North Macedonia 🇲🇰": "",
     "17) 🇩🇰 Denmark vs Belgium 🇧🇪 ": "",
     "18) 🇳🇱 Netherlands vs Austria 🇦🇺": ""
@@ -77,6 +77,8 @@ def main():
 
     for root, dirs, files in os.walk(BETS_DIR):
         for file in files:
+            game_index.clear()
+
             with open(os.path.join(root, file)) as f:
                 reader = csv.reader(f, delimiter=',', quotechar='"')
 
