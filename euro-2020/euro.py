@@ -48,7 +48,10 @@ WRONG_PREDICTION_POINTS = 0
 signum = lambda x: -1 if x < 0 else (1 if x > 0 else 0)
 
 
-def count_points(expected: str, actual: str):
+def count_points(expected: str, actual: str) -> int:
+    """
+    e.g: expected: "2-1", actual: "1-0" -> points: 2
+    """
     actual = actual.strip()
     expected = expected.strip()
     assert actual != "" and expected != ""
@@ -77,34 +80,41 @@ def main():
 
     for root, dirs, files in os.walk(BETS_DIR):
         for file in files:
+            # remove already seen games
             game_index.clear()
 
             with open(os.path.join(root, file)) as f:
+                print(f'\n-> Parsing {f.name}\n')
                 reader = csv.reader(f, delimiter=',', quotechar='"')
 
+                # scan header to extract games from the current csv
                 is_header = True
                 for row in reader:
                     if is_header:
                         is_header = False
-                        for i, column in enumerate(row):
-                            if i >= GAMES_START_FROM_INDEX:
-                                if column in game_index:
-                                    raise ValueError(f"game '{column}' already exists!")
-                                game_index[column] = i
+                        # names of the games start from 2nd column in csv: timestamp,email,game1,game2,game3,...gameN
+                        for i in range(GAMES_START_FROM_INDEX, len(row)):
+                            name_of_the_game = row[i]
+                            # match each game with it's column's index in the csv: (game1 -> 2, game2 -> 3, ...)
+                            game_index[name_of_the_game] = i
                         continue
 
+                    # don't forget to remove emails from csv before processing
                     player = row[PLAYER_NAME_INDEX]
                     if player not in player_points:
                         player_points[player] = 0
 
+                    # for each game that was scanned previously, compare actual score against prediction
+                    print(f'Player: {player}')
                     for game, index in game_index.items():
                         predicted_result = row[index]
                         actual_result = GAME_RESULTS[game]
                         if actual_result == "":
-                            print(f"No results for game '{game}'. Skipping")
+                            print(f"  game: {game} has not finished yet")
                             continue
 
                         points = count_points(predicted_result, actual_result)
+                        print(f'  game: {game}\tpredicted: {predicted_result}, actual: {actual_result} -> points: {points}')
 
                         player_points[player] += points
 
@@ -117,6 +127,7 @@ def main():
         writer = csv.writer(f, delimiter=',')
 
         writer.writerow(['Player', 'Points'])
+        print('\nResults:')
         for player, points in player_points_sorted.items():
             print(f'{player} \t -> {points}')
             writer.writerow([player, points])
