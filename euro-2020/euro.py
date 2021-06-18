@@ -106,6 +106,7 @@ def main():
 
                     # for each game that was scanned previously, compare actual score against prediction
                     print(f'Player: {player}')
+                    points_aggregated = 0
                     for game, index in game_index.items():
                         predicted_result = row[index]
                         actual_result = GAME_RESULTS[game]
@@ -115,8 +116,10 @@ def main():
 
                         points = count_points(predicted_result, actual_result)
                         print(f'  game: {game}\tpredicted: {predicted_result}, actual: {actual_result} -> points: {points}')
+                        points_aggregated += points
 
-                        player_points[player] += points
+                    print(f'  score -> {points_aggregated}')
+                    player_points[player] += points_aggregated
 
     # sort by player name (key of the dict)
     player_points_sorted = dict(sorted(player_points.items(), key=lambda item: item[0]))
