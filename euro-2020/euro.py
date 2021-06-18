@@ -19,9 +19,9 @@ GAME_RESULTS = {
     "13) 🇫🇮Finland vs Russia 🇷🇺": "0-1",
     "14) 🇹🇷 Turkey vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿": "0-2",
     "15) 🇮🇹Italy vs Switzerland 🇨🇭": "3-0",
-    "16) 🇺🇦 Ukraine vs North Macedonia 🇲🇰": "",
-    "17) 🇩🇰 Denmark vs Belgium 🇧🇪 ": "",
-    "18) 🇳🇱 Netherlands vs Austria 🇦🇺": ""
+    "16) 🇺🇦 Ukraine vs North Macedonia 🇲🇰": "2-1",
+    "17) 🇩🇰 Denmark vs Belgium 🇧🇪 ": "1-2",
+    "18) 🇳🇱 Netherlands vs Austria 🇦🇺": "2-0"
 }
 
 BETS_DIR = "bets"
