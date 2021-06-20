@@ -2,7 +2,6 @@ import csv
 import os
 from datetime import date
 
-
 GAME_RESULTS = {
     "1) Turkey vs Italy": "0-3",
     "2) Wales vs Switzerland": "1-1",
@@ -21,7 +20,19 @@ GAME_RESULTS = {
     "15) 🇮🇹Italy vs Switzerland 🇨🇭": "3-0",
     "16) 🇺🇦 Ukraine vs North Macedonia 🇲🇰": "2-1",
     "17) 🇩🇰 Denmark vs Belgium 🇧🇪 ": "1-2",
-    "18) 🇳🇱 Netherlands vs Austria 🇦🇺": "2-0"
+    "18) 🇳🇱 Netherlands vs Austria 🇦🇺": "2-0",
+    "19) 🇸🇪Sweden vs Slovakia 🇸🇰": "1-0",
+    "20) 🇭🇷Croatia vs Czech Republic 🇨🇿": "1-1",
+    "21) 🏴󠁧󠁢󠁥󠁮󠁧󠁿England vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿": "0-0",
+    "22) 🇭🇺Hungary vs France 🇫🇷": "1-1",
+    "23) 🇵🇹Portugal vs Germany 🇩🇪": "2-4",
+    "24) 🇪🇸Spain vs Poland 🇵🇱": "1-1",
+    "25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿": "1-0",
+    "26)🇨🇭Switzerland vs Turkey 🇹🇷": "3-1",
+    "27) 🇲🇰North Macedonia vs Netherlands 🇳🇱": "",
+    "28) 🇺🇦Ukraine vs Austria 🦘": "",
+    "29) 🇷🇺Russia vs Denmark 🇩🇰": "",
+    "30) 🇫🇮Finland vs Belgium 🇧🇪": ""
 }
 
 BETS_DIR = "bets"
@@ -115,7 +126,9 @@ def main():
                             continue
 
                         points = count_points(predicted_result, actual_result)
-                        print(f'  game: {game}\tpredicted: {predicted_result}, actual: {actual_result} -> points: {points}')
+                        print(f'  game: {game}\tpredicted: {predicted_result}, '
+                              f'actual: {actual_result} -> points: {points}')
+
                         points_aggregated += points
 
                     print(f'  score -> {points_aggregated}')
