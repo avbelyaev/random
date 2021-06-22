@@ -29,10 +29,10 @@ GAME_RESULTS = {
     "24) 🇪🇸Spain vs Poland 🇵🇱": "1-1",
     "25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿": "1-0",
     "26)🇨🇭Switzerland vs Turkey 🇹🇷": "3-1",
-    "27) 🇲🇰North Macedonia vs Netherlands 🇳🇱": "",
-    "28) 🇺🇦Ukraine vs Austria 🦘": "",
-    "29) 🇷🇺Russia vs Denmark 🇩🇰": "",
-    "30) 🇫🇮Finland vs Belgium 🇧🇪": ""
+    "27) 🇲🇰North Macedonia vs Netherlands 🇳🇱": "0-3",
+    "28) 🇺🇦Ukraine vs Austria 🦘": "0-1",
+    "29) 🇷🇺Russia vs Denmark 🇩🇰": "1-4",
+    "30) 🇫🇮Finland vs Belgium 🇧🇪": "0-2"
 }
 
 BETS_DIR = "bets"

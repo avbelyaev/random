@@ -13,11 +13,11 @@ Player: anthony.belyaev
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 0-0, actual: 1-1 -> points: 2
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 2-1, actual: 1-0 -> points: 2
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 13
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-2, actual: 0-3 -> points: 1
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 1-1, actual: 0-1 -> points: 0
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 1-2, actual: 1-4 -> points: 1
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 0-3, actual: 0-2 -> points: 1
+  score -> 16
 Player: anton.alechnovic
   game: 19) 🇸🇪Sweden vs Slovakia 🇸🇰	predicted: 2-2, actual: 1-0 -> points: 0
   game: 20) 🇭🇷Croatia vs Czech Republic 🇨🇿	predicted: 2-1, actual: 1-1 -> points: 0
@@ -27,11 +27,11 @@ Player: anton.alechnovic
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 2-0, actual: 1-1 -> points: 0
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 2-1, actual: 1-0 -> points: 2
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 1-1, actual: 3-1 -> points: 0
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 3
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-3, actual: 0-3 -> points: 3
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 2-1, actual: 0-1 -> points: 0
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 2-0, actual: 1-4 -> points: 0
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 0-2, actual: 0-2 -> points: 3
+  score -> 9
 Player: peter.jurkovic
   game: 19) 🇸🇪Sweden vs Slovakia 🇸🇰	predicted: 2-1, actual: 1-0 -> points: 2
   game: 20) 🇭🇷Croatia vs Czech Republic 🇨🇿	predicted: 2-2, actual: 1-1 -> points: 2
@@ -41,11 +41,11 @@ Player: peter.jurkovic
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 3-1, actual: 1-1 -> points: 0
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 2-1, actual: 1-0 -> points: 2
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 7
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-2, actual: 0-3 -> points: 1
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 1-1, actual: 0-1 -> points: 0
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 1-0, actual: 1-4 -> points: 0
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 2-2, actual: 0-2 -> points: 0
+  score -> 8
 Player: molly.woo
   game: 19) 🇸🇪Sweden vs Slovakia 🇸🇰	predicted: 2-1, actual: 1-0 -> points: 2
   game: 20) 🇭🇷Croatia vs Czech Republic 🇨🇿	predicted: 0-2, actual: 1-1 -> points: 0
@@ -55,11 +55,11 @@ Player: molly.woo
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 2-0, actual: 1-1 -> points: 0
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 1-2, actual: 1-0 -> points: 0
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 6
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-1, actual: 0-3 -> points: 1
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 0-1, actual: 0-1 -> points: 3
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 0-1, actual: 1-4 -> points: 1
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 1-1, actual: 0-2 -> points: 0
+  score -> 11
 Player: leon.patmore
   game: 19) 🇸🇪Sweden vs Slovakia 🇸🇰	predicted: 0-1, actual: 1-0 -> points: 0
   game: 20) 🇭🇷Croatia vs Czech Republic 🇨🇿	predicted: 2-2, actual: 1-1 -> points: 2
@@ -69,11 +69,11 @@ Player: leon.patmore
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 1-0, actual: 1-1 -> points: 0
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 1-0, actual: 1-0 -> points: 3
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 0-0, actual: 3-1 -> points: 0
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 5
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-2, actual: 0-3 -> points: 1
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 0-2, actual: 0-1 -> points: 1
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 0-0, actual: 1-4 -> points: 0
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 0-1, actual: 0-2 -> points: 1
+  score -> 8
 Player: dylan.basdeo
   game: 19) 🇸🇪Sweden vs Slovakia 🇸🇰	predicted: 1-1, actual: 1-0 -> points: 0
   game: 20) 🇭🇷Croatia vs Czech Republic 🇨🇿	predicted: 1-0, actual: 1-1 -> points: 0
@@ -83,11 +83,11 @@ Player: dylan.basdeo
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 2-1, actual: 1-1 -> points: 0
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 2-1, actual: 1-0 -> points: 2
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 3
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-3, actual: 0-3 -> points: 3
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 1-2, actual: 0-1 -> points: 2
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 1-1, actual: 1-4 -> points: 0
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 0-3, actual: 0-2 -> points: 1
+  score -> 9
 Player: stuart.mackellar
   game: 19) 🇸🇪Sweden vs Slovakia 🇸🇰	predicted: 1-0, actual: 1-0 -> points: 3
   game: 20) 🇭🇷Croatia vs Czech Republic 🇨🇿	predicted: 1-1, actual: 1-1 -> points: 3
@@ -97,11 +97,11 @@ Player: stuart.mackellar
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 3-0, actual: 1-1 -> points: 0
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 1-1, actual: 1-0 -> points: 0
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 0-0, actual: 3-1 -> points: 0
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 6
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-3, actual: 0-3 -> points: 3
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 1-0, actual: 0-1 -> points: 0
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 1-0, actual: 1-4 -> points: 0
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 0-2, actual: 0-2 -> points: 3
+  score -> 12
 Player: aurelien.favre
   game: 19) 🇸🇪Sweden vs Slovakia 🇸🇰	predicted: 2-1, actual: 1-0 -> points: 2
   game: 20) 🇭🇷Croatia vs Czech Republic 🇨🇿	predicted: 2-1, actual: 1-1 -> points: 0
@@ -111,11 +111,11 @@ Player: aurelien.favre
   game: 24) 🇪🇸Spain vs Poland 🇵🇱	predicted: 1-0, actual: 1-1 -> points: 0
   game: 25) 🇮🇹Italy vs Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿	predicted: 3-1, actual: 1-0 -> points: 1
   game: 26)🇨🇭Switzerland vs Turkey 🇹🇷	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱 has not finished yet
-  game: 28) 🇺🇦Ukraine vs Austria 🦘 has not finished yet
-  game: 29) 🇷🇺Russia vs Denmark 🇩🇰 has not finished yet
-  game: 30) 🇫🇮Finland vs Belgium 🇧🇪 has not finished yet
-  score -> 4
+  game: 27) 🇲🇰North Macedonia vs Netherlands 🇳🇱	predicted: 0-2, actual: 0-3 -> points: 1
+  game: 28) 🇺🇦Ukraine vs Austria 🦘	predicted: 1-1, actual: 0-1 -> points: 0
+  game: 29) 🇷🇺Russia vs Denmark 🇩🇰	predicted: 1-2, actual: 1-4 -> points: 1
+  game: 30) 🇫🇮Finland vs Belgium 🇧🇪	predicted: 1-3, actual: 0-2 -> points: 2
+  score -> 8
 ```
 
 ### Bets, day 2
