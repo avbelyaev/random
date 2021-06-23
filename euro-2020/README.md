@@ -1,6 +1,71 @@
 ## Euro 2020
 
-### Bets, day 3
+
+### Group stage
+
+#### Bets, day 4
+```
+-> Parsing bets/Group-stage-4.csv
+
+Player: peter.jurkovic
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 1-1, actual: 0-1 -> points: 0
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 2-1, actual: 3-1 -> points: 1
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
+  score -> 1
+Player: anthony.belyaev
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 0-2, actual: 0-1 -> points: 1
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 1-0, actual: 3-1 -> points: 1
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
+  score -> 2
+Player: leon.patmore
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 0-2, actual: 0-1 -> points: 1
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 1-0, actual: 3-1 -> points: 1
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
+  score -> 2
+Player: anton.alechnovic
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 1:1, actual: 0-1 -> points: 0
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 3:0, actual: 3-1 -> points: 1
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
+  score -> 1
+Player: stuart.mackellar
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 1-1, actual: 0-1 -> points: 0
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 0-0, actual: 3-1 -> points: 0
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
+  score -> 0
+Player: aurelien.favre
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 0-2, actual: 0-1 -> points: 1
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 1-0, actual: 3-1 -> points: 1
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
+  score -> 2
+Player: dylan.basdeo
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿  bet was not placed / placed too late
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿  bet was not placed / placed too late
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
+  score -> 0
+```
+
+#### Bets, day 3
 ```
 -> Parsing bets/Group-stage-3.csv
 
@@ -118,7 +183,7 @@ Player: aurelien.favre
   score -> 8
 ```
 
-### Bets, day 2
+#### Bets, day 2
 ```
 -> Parsing bets/Group-stage-2.csv
 
@@ -214,7 +279,7 @@ Player: molly.woo
   score -> 10
 ```
 
-### Bets, day 1
+#### Bets, day 1
 ```
 -> Parsing bets/Group-stage-1.csv
 

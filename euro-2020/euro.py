@@ -32,12 +32,19 @@ GAME_RESULTS = {
     "27) 🇲🇰North Macedonia vs Netherlands 🇳🇱": "0-3",
     "28) 🇺🇦Ukraine vs Austria 🦘": "0-1",
     "29) 🇷🇺Russia vs Denmark 🇩🇰": "1-4",
-    "30) 🇫🇮Finland vs Belgium 🇧🇪": "0-2"
+    "30) 🇫🇮Finland vs Belgium 🇧🇪": "0-2",
+    "31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ": "0-1",
+    "32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 ": "3-1",
+    "33) 🇸🇰 Slovakia vs Spain 🇪🇸 ": "",
+    "34) 🇸🇪 Sweden vs Poland 🇵🇱 ": "",
+    "35) 🇩🇪 Germany vs Hungary 🇭🇺 ": "",
+    "36) 🇵🇹 Portugal vs France 🇫🇷": ""
 }
 
 BETS_DIR = "bets"
 PLAYER_NAME_INDEX = 1
 GAMES_START_FROM_INDEX = 2
+SEPARATOR = "-"
 
 EXACT_SCORE_PREDICTED_POINTS = 3
 GOAL_DIFFERENCE_PREDICTED_POINTS = 2
@@ -64,16 +71,16 @@ def count_points(expected: str, actual: str) -> int:
     e.g: expected: "2-1", actual: "1-0" -> points: 2
     """
     actual = actual.strip()
-    expected = expected.strip()
+    expected = expected.strip().replace(":", SEPARATOR)
     assert actual != "" and expected != ""
 
     if actual == expected:
         return EXACT_SCORE_PREDICTED_POINTS
 
-    left_expected, right_expected = list(map(lambda x: int(x), expected.split('-')))
+    left_expected, right_expected = list(map(lambda x: int(x), expected.split(SEPARATOR)))
     goal_diff_expected = left_expected - right_expected
 
-    left_actual, right_actual = list(map(lambda x: int(x), actual.split('-')))
+    left_actual, right_actual = list(map(lambda x: int(x), actual.split(SEPARATOR)))
     goal_diff_actual = left_actual - right_actual
 
     if goal_diff_expected == goal_diff_actual:
@@ -120,6 +127,10 @@ def main():
                     points_aggregated = 0
                     for game, index in game_index.items():
                         predicted_result = row[index]
+                        if predicted_result == "":
+                            print(f"  game: {game} bet was not placed")
+                            continue
+
                         actual_result = GAME_RESULTS[game]
                         if actual_result == "":
                             print(f"  game: {game} has not finished yet")
