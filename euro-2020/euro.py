@@ -3,6 +3,7 @@ import os
 from datetime import date
 
 GAME_RESULTS = {
+    # group stage
     "1) Turkey vs Italy": "0-3",
     "2) Wales vs Switzerland": "1-1",
     "3) Denmark vs Finland": "0-1",
@@ -35,10 +36,12 @@ GAME_RESULTS = {
     "30) 🇫🇮Finland vs Belgium 🇧🇪": "0-2",
     "31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ": "0-1",
     "32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 ": "3-1",
-    "33) 🇸🇰 Slovakia vs Spain 🇪🇸 ": "",
-    "34) 🇸🇪 Sweden vs Poland 🇵🇱 ": "",
-    "35) 🇩🇪 Germany vs Hungary 🇭🇺 ": "",
-    "36) 🇵🇹 Portugal vs France 🇫🇷": ""
+    "33) 🇸🇰 Slovakia vs Spain 🇪🇸 ": "0-5",
+    "34) 🇸🇪 Sweden vs Poland 🇵🇱 ": "3-2",
+    "35) 🇩🇪 Germany vs Hungary 🇭🇺 ": "2-2",
+    "36) 🇵🇹 Portugal vs France 🇫🇷": "2-2"
+    # play off
+    # TBD
 }
 
 BETS_DIR = "bets"

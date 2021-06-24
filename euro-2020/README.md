@@ -10,59 +10,67 @@
 Player: peter.jurkovic
   game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 1-1, actual: 0-1 -> points: 0
   game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 2-1, actual: 3-1 -> points: 1
-  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
-  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
-  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
-  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
-  score -> 1
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 0-2, actual: 0-5 -> points: 1
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 1-1, actual: 3-2 -> points: 0
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 2-0, actual: 2-2 -> points: 0
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 1-1, actual: 2-2 -> points: 2
+  score -> 4
 Player: anthony.belyaev
   game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 0-2, actual: 0-1 -> points: 1
   game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
-  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
-  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
-  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
-  score -> 2
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 0-1, actual: 0-5 -> points: 1
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 0-0, actual: 3-2 -> points: 0
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 2-0, actual: 2-2 -> points: 0
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 1-2, actual: 2-2 -> points: 0
+  score -> 3
 Player: leon.patmore
   game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 0-2, actual: 0-1 -> points: 1
   game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
-  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
-  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
-  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
-  score -> 2
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 0-2, actual: 0-5 -> points: 1
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 0-0, actual: 3-2 -> points: 0
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 2-0, actual: 2-2 -> points: 0
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 1-0, actual: 2-2 -> points: 0
+  score -> 3
 Player: anton.alechnovic
   game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 1:1, actual: 0-1 -> points: 0
   game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 3:0, actual: 3-1 -> points: 1
-  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
-  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
-  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
-  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
-  score -> 1
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 1:2, actual: 0-5 -> points: 1
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 2:2, actual: 3-2 -> points: 0
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 3:1, actual: 2-2 -> points: 0
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 2:5, actual: 2-2 -> points: 0
+  score -> 2
 Player: stuart.mackellar
   game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 1-1, actual: 0-1 -> points: 0
   game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 0-0, actual: 3-1 -> points: 0
-  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
-  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
-  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
-  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
-  score -> 0
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 0-2, actual: 0-5 -> points: 1
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 1-1, actual: 3-2 -> points: 0
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 3-0, actual: 2-2 -> points: 0
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 0-2, actual: 2-2 -> points: 0
+  score -> 1
 Player: aurelien.favre
   game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 0-2, actual: 0-1 -> points: 1
   game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 1-0, actual: 3-1 -> points: 1
-  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
-  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
-  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
-  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
-  score -> 2
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 1-1, actual: 0-5 -> points: 0
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 2-1, actual: 3-2 -> points: 2
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 3-0, actual: 2-2 -> points: 0
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 1-2, actual: 2-2 -> points: 0
+  score -> 4
 Player: dylan.basdeo
-  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿  bet was not placed / placed too late
-  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿  bet was not placed / placed too late
-  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸  has not finished yet
-  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱  has not finished yet
-  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺  has not finished yet
-  game: 36) 🇵🇹 Portugal vs France 🇫🇷 has not finished yet
-  score -> 0
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿  bet was not placed
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿  bet was not placed
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 1-3, actual: 0-5 -> points: 1
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 1-1, actual: 3-2 -> points: 0
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 2-0, actual: 2-2 -> points: 0
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 1-2, actual: 2-2 -> points: 0
+  score -> 1
+Player: molly.woo
+  game: 31) 🇨🇿Czech Republic vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 	predicted: 0-2, actual: 0-1 -> points: 1
+  game: 32) 🇭🇷Croatia vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 	predicted: 0-1, actual: 3-1 -> points: 0
+  game: 33) 🇸🇰 Slovakia vs Spain 🇪🇸 	predicted: 0-1, actual: 0-5 -> points: 1
+  game: 34) 🇸🇪 Sweden vs Poland 🇵🇱 	predicted: 0-0, actual: 3-2 -> points: 0
+  game: 35) 🇩🇪 Germany vs Hungary 🇭🇺 	predicted: 1-1, actual: 2-2 -> points: 2
+  game: 36) 🇵🇹 Portugal vs France 🇫🇷	predicted: 1-1, actual: 2-2 -> points: 2
+  score -> 6
 ```
 
 #### Bets, day 3
