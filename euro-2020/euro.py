@@ -159,21 +159,24 @@ def bet(base_dir: str):
                     print(f'Player: {player}')
                     points_aggregated = 0
                     for game, index in game_index.items():
+                        s = f'  game: {game}'
                         predicted_result = row[index]
                         if predicted_result == "":
                             print(f"  game: {game} bet was not placed")
                             continue
+                        s += f'\tpredicted: {predicted_result}'
 
                         actual_result = GAME_RESULTS[game]
                         if actual_result == "":
-                            print(f"  game: {game} has not finished yet")
+                            s += ', actual: tbd'
+                            print(s)
                             continue
 
                         points = count_points(predicted_result, actual_result)
-                        print(f'  game: {game}\tpredicted: {predicted_result}, '
-                              f'actual: {actual_result} -> points: {points}')
-
                         points_aggregated += points
+
+                        s += f', actual: {actual_result} -> points: {points}'
+                        print(s)
 
                     print(f'  score -> {points_aggregated}')
                     player_points[player] += points_aggregated
