@@ -39,12 +39,21 @@ GAME_RESULTS = {
     "33) 🇸🇰 Slovakia vs Spain 🇪🇸 ": "0-5",
     "34) 🇸🇪 Sweden vs Poland 🇵🇱 ": "3-2",
     "35) 🇩🇪 Germany vs Hungary 🇭🇺 ": "2-2",
-    "36) 🇵🇹 Portugal vs France 🇫🇷": "2-2"
-    # play off
-    # TBD
+    "36) 🇵🇹 Portugal vs France 🇫🇷": "2-2",
+    # playoffs
+    "37) Wales vs Denmark": "0-4",
+    "38) Italy vs Austria": "2-1",
+    "39) Netherlands vs Czech": "0-2",
+    "40) Belgium vs Portugal": "1-0",
+    "41) Croatia vs Spain": "",
+    "42) France vs Switzerland": "",
+    "43) England vs Germany": "",
+    "44) Sweden vs Ukraine": ""
 }
 
 BETS_DIR = "bets"
+POINTS_DIR = "points"
+
 PLAYER_NAME_INDEX = 1
 GAMES_START_FROM_INDEX = 2
 SEPARATOR = "-"
@@ -54,17 +63,31 @@ GOAL_DIFFERENCE_PREDICTED_POINTS = 2
 OUTCOME_PREDICTED_POINTS = 1
 WRONG_PREDICTION_POINTS = 0
 
-# How we count points:
+# How we count points for the whole match (90 or 120 min):
 # - exact score: 3 pts
 # - goal difference: 2pts
 # - outcome (win or lose): 1pt
 #
 # Example:
-# Say, the final result of the game: 1-0
-# - you voted 1-0 -> 3 points (exact score, goal diff, outcome - everything is correct)
-# - you voted 2-1 -> 2 points (goal difference and outcome are correct)
-# - you voted 3-1 -> 1 pint (outcome is correct)
-# - you voted 1-1 -> 0
+# Final result of the game: 1-0 (after 90 or 120 min)
+# - you voted 1-0 -> 3 points [exact-score + diff + outcome]
+# - you voted 2-1 -> 2 points [diff + outcome]
+# - you voted 3-1 -> 1 point [outcome]
+#
+#
+# ⚠️ Playoff rules ⚠️
+# You may additionally vote for the winner-by-penalty in case of a draw
+#
+# Example:
+# Final result of the whole game (120 min): 1-1, team-B has won by penalties
+# - you voted 1-1 B -> 4 points [exact-score + diff + outcome(B won) + winner-by-penalty]
+# - you voted 0-0 B -> 3 points [diff + outcome(B won) + winner-by-penalty]
+#
+# - you voted 1-1 A -> 2 points [exact-sore + diff]
+# - you voted 0-0 A -> 1 point [diff]
+#
+# - you voted 1-1 -> 2 points [exact-score + diff]
+# - you voted 0-0 -> 1 point [diff]
 
 signum = lambda x: -1 if x < 0 else (1 if x > 0 else 0)
 
@@ -79,6 +102,13 @@ def count_points(expected: str, actual: str) -> int:
 
     if actual == expected:
         return EXACT_SCORE_PREDICTED_POINTS
+
+    is_penalty = lambda bet: len(bet.split()) > 1
+    if not is_penalty(actual):
+        # ignore any bets on penalty series unless it was a penalty in the actual game
+        expected = expected.split()[0]
+    else:
+        raise ValueError('penalty!')
 
     left_expected, right_expected = list(map(lambda x: int(x), expected.split(SEPARATOR)))
     goal_diff_expected = left_expected - right_expected
@@ -95,11 +125,11 @@ def count_points(expected: str, actual: str) -> int:
     return WRONG_PREDICTION_POINTS
 
 
-def main():
+def bet(base_dir: str):
     game_index = dict()
     player_points = dict()
 
-    for root, dirs, files in os.walk(BETS_DIR):
+    for root, dirs, files in os.walk(f'{base_dir}/{BETS_DIR}'):
         for file in files:
             # remove already seen games
             game_index.clear()
@@ -153,7 +183,7 @@ def main():
 
     # save as csv
     today = date.today().strftime("%b-%d")
-    with open(f"points/player-points-{today}.csv", 'w') as f:
+    with open(f"{base_dir}/{POINTS_DIR}/points-{today}.csv", 'w') as f:
         writer = csv.writer(f, delimiter=',')
 
         writer.writerow(['Player', 'Points'])
@@ -161,6 +191,10 @@ def main():
         for player, points in player_points_sorted.items():
             print(f'{player} \t -> {points}')
             writer.writerow([player, points])
+
+    # don't drag points from previous calculation
+    player_points.clear()
+    game_index.clear()
 
 
 if __name__ == '__main__':
@@ -181,4 +215,5 @@ if __name__ == '__main__':
     assert WRONG_PREDICTION_POINTS == count_points(expected='3-1', actual='1-1')
     assert WRONG_PREDICTION_POINTS == count_points(expected='3-3', actual='2-3')
     assert WRONG_PREDICTION_POINTS == count_points(expected='3-3', actual='3-2')
-    main()
+    bet('groups')
+    bet('playoffs')
