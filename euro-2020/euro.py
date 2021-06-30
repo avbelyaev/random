@@ -40,16 +40,19 @@ GAME_RESULTS = {
     "34) 🇸🇪 Sweden vs Poland 🇵🇱 ": "3-2",
     "35) 🇩🇪 Germany vs Hungary 🇭🇺 ": "2-2",
     "36) 🇵🇹 Portugal vs France 🇫🇷": "2-2",
-    # playoffs
+    # playoffs, 1/8
     "37) Wales vs Denmark": "0-4",
     "38) Italy vs Austria": "2-1",
     "39) Netherlands vs Czech": "0-2",
     "40) Belgium vs Portugal": "1-0",
-    "41) Croatia vs Spain": "",
-    "42) France vs Switzerland": "",
-    "43) England vs Germany": "",
-    "44) Sweden vs Ukraine": ""
+    "41) Croatia vs Spain": "3-5",
+    "42) France vs Switzerland": "3-3 Switzerland",     # <- penalty series 1
+    "43) England vs Germany": "2-0",
+    "44) Sweden vs Ukraine": "1-2"
+    # playoffs, 1/4
 }
+
+SKIP = ""
 
 BETS_DIR = "bets"
 POINTS_DIR = "points"
@@ -104,11 +107,8 @@ def count_points(expected: str, actual: str) -> int:
         return EXACT_SCORE_PREDICTED_POINTS
 
     is_penalty = lambda bet: len(bet.split()) > 1
-    if not is_penalty(actual):
-        # ignore any bets on penalty series unless it was a penalty in the actual game
-        expected = expected.split()[0]
-    else:
-        raise ValueError('penalty!')
+    if is_penalty(actual) or is_penalty(expected):
+        raise ValueError(f'check the score manually!')
 
     left_expected, right_expected = list(map(lambda x: int(x), expected.split(SEPARATOR)))
     goal_diff_expected = left_expected - right_expected
@@ -161,21 +161,27 @@ def bet(base_dir: str):
                     for game, index in game_index.items():
                         s = f'  game: {game}'
                         predicted_result = row[index]
-                        if predicted_result == "":
+                        if predicted_result == SKIP:
                             print(f"  game: {game} bet was not placed")
                             continue
                         s += f'\tpredicted: {predicted_result}'
 
                         actual_result = GAME_RESULTS[game]
-                        if actual_result == "":
+                        if actual_result == SKIP:
                             s += ', actual: tbd'
                             print(s)
                             continue
+                        s += f', actual: {actual_result}'
 
-                        points = count_points(predicted_result, actual_result)
-                        points_aggregated += points
+                        try:
+                            points = count_points(predicted_result, actual_result)
+                            points_aggregated += points
+                        except ValueError:
+                            print(s)
+                            print(f'>>> need manual calc')
+                            continue
 
-                        s += f', actual: {actual_result} -> points: {points}'
+                        s += f' -> points: {points}'
                         print(s)
 
                     print(f'  score -> {points_aggregated}')

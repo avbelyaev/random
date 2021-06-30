@@ -4,7 +4,7 @@
 
 ![o](img/euro-2020-last-16-bracket.jpeg)
 
-#### Bets, day 1
+#### Bets, 1/8
 ```
 -> Parsing playoffs/bets/Playoffs-1.csv
 
@@ -13,71 +13,91 @@ Player: anthony.belyaev
   game: 38) Italy vs Austria	predicted: 2-0, actual: 2-1 -> points: 1
   game: 39) Netherlands vs Czech	predicted: 2-0, actual: 0-2 -> points: 0
   game: 40) Belgium vs Portugal	predicted: 1-2, actual: 1-0 -> points: 0
-  game: 41) Croatia vs Spain	predicted: 1-2, actual: tbd
-  game: 42) France vs Switzerland	predicted: 3-0, actual: tbd
-  game: 43) England vs Germany	predicted: 0-1, actual: tbd
-  game: 44) Sweden vs Ukraine	predicted: 0-1, actual: tbd
-  score -> 1
+  game: 41) Croatia vs Spain	predicted: 1-2, actual: 3-5 -> points: 1
+  game: 42) France vs Switzerland	predicted: 3-0, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 0-1, actual: 2-0 -> points: 0
+  game: 44) Sweden vs Ukraine	predicted: 0-1, actual: 1-2 -> points: 2
+  score -> 4
 Player: peter.jurkovic
   game: 37) Wales vs Denmark	predicted: 1-1, actual: 0-4 -> points: 0
   game: 38) Italy vs Austria	predicted: 2-1, actual: 2-1 -> points: 3
   game: 39) Netherlands vs Czech	predicted: 2-1, actual: 0-2 -> points: 0
   game: 40) Belgium vs Portugal	predicted: 0-2, actual: 1-0 -> points: 0
-  game: 41) Croatia vs Spain	predicted: 1-1, actual: tbd
-  game: 42) France vs Switzerland	predicted: 2-1, actual: tbd
-  game: 43) England vs Germany	predicted: 2-2, actual: tbd
-  game: 44) Sweden vs Ukraine	predicted: 1-1, actual: tbd
+  game: 41) Croatia vs Spain	predicted: 1-1, actual: 3-5 -> points: 0
+  game: 42) France vs Switzerland	predicted: 2-1, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 2-2, actual: 2-0 -> points: 0
+  game: 44) Sweden vs Ukraine	predicted: 1-1, actual: 1-2 -> points: 0
   score -> 3
 Player: stuart.mackellar
   game: 37) Wales vs Denmark	predicted: 2-1, actual: 0-4 -> points: 0
   game: 38) Italy vs Austria	predicted: 3-0, actual: 2-1 -> points: 1
   game: 39) Netherlands vs Czech	predicted: 2-0, actual: 0-2 -> points: 0
   game: 40) Belgium vs Portugal	predicted: 2-1, actual: 1-0 -> points: 2
-  game: 41) Croatia vs Spain	predicted: 1-1, actual: tbd
-  game: 42) France vs Switzerland	predicted: 1-0, actual: tbd
-  game: 43) England vs Germany	predicted: 1-1, actual: tbd
-  game: 44) Sweden vs Ukraine	predicted: 1-1, actual: tbd
+  game: 41) Croatia vs Spain	predicted: 1-1, actual: 3-5 -> points: 0
+  game: 42) France vs Switzerland	predicted: 1-0, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 1-1, actual: 2-0 -> points: 0
+  game: 44) Sweden vs Ukraine	predicted: 1-1, actual: 1-2 -> points: 0
   score -> 3
 Player: anton.alechnovic
   game: 37) Wales vs Denmark	predicted: 2:1, actual: 0-4 -> points: 0
   game: 38) Italy vs Austria	predicted: 3:2, actual: 2-1 -> points: 2
   game: 39) Netherlands vs Czech	predicted: 3:1, actual: 0-2 -> points: 0
   game: 40) Belgium vs Portugal	predicted: 2:2, actual: 1-0 -> points: 0
-  game: 41) Croatia vs Spain	predicted: 2:3, actual: tbd
-  game: 42) France vs Switzerland	predicted: 3:0, actual: tbd
-  game: 43) England vs Germany	predicted: 0:2, actual: tbd
-  game: 44) Sweden vs Ukraine	predicted: 2:1, actual: tbd
-  score -> 2
+  game: 41) Croatia vs Spain	predicted: 2:3, actual: 3-5 -> points: 1
+  game: 42) France vs Switzerland	predicted: 3:0, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 0:2, actual: 2-0 -> points: 0
+  game: 44) Sweden vs Ukraine	predicted: 2:1, actual: 1-2 -> points: 0
+  score -> 3
 Player: leon.patmore
   game: 37) Wales vs Denmark	predicted: 1-1 Wales, actual: 0-4 -> points: 0
   game: 38) Italy vs Austria	predicted: 2-0, actual: 2-1 -> points: 1
   game: 39) Netherlands vs Czech	predicted: 1-0, actual: 0-2 -> points: 0
   game: 40) Belgium vs Portugal	predicted: 0-1, actual: 1-0 -> points: 0
-  game: 41) Croatia vs Spain	predicted: 2-2 Spain, actual: tbd
-  game: 42) France vs Switzerland	predicted: 2-0, actual: tbd
-  game: 43) England vs Germany	predicted: 1-0, actual: tbd
-  game: 44) Sweden vs Ukraine	predicted: 1-0, actual: tbd
-  score -> 1
+  game: 41) Croatia vs Spain	predicted: 2-2 Spain, actual: 3-5 -> points: 1
+  game: 42) France vs Switzerland	predicted: 2-0, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 1-0, actual: 2-0 -> points: 1
+  game: 44) Sweden vs Ukraine	predicted: 1-0, actual: 1-2 -> points: 0
+  score -> 3
 Player: aurelien.favre
   game: 37) Wales vs Denmark	predicted: 1-1 Wales, actual: 0-4 -> points: 0
   game: 38) Italy vs Austria	predicted: 3-1, actual: 2-1 -> points: 1
-  game: 39) Netherlands vs Czech	predicted: 1-1 Netherlands, actual: 0-2 -> points: 0
+  game: 39) Netherlands vs Czech	predicted: 1-1 Netherland, actual: 0-2 -> points: 0
   game: 40) Belgium vs Portugal	predicted: 3-1, actual: 1-0 -> points: 1
-  game: 41) Croatia vs Spain	predicted: 0-0 Croatia, actual: tbd
-  game: 42) France vs Switzerland	predicted: 2-0, actual: tbd
-  game: 43) England vs Germany	predicted: 2-1, actual: tbd
-  game: 44) Sweden vs Ukraine	predicted: 1-0, actual: tbd
-  score -> 2
+  game: 41) Croatia vs Spain	predicted: 0-0 Croatia, actual: 3-5 -> points: 0
+  game: 42) France vs Switzerland	predicted: 2-0, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 2-1, actual: 2-0 -> points: 1
+  game: 44) Sweden vs Ukraine	predicted: 1-0, actual: 1-2 -> points: 0
+  score -> 3
 Player: dylan.basdeo
   game: 37) Wales vs Denmark	predicted: 1-2, actual: 0-4 -> points: 1
   game: 38) Italy vs Austria	predicted: 3-1, actual: 2-1 -> points: 1
   game: 39) Netherlands vs Czech	predicted: 2-1, actual: 0-2 -> points: 0
   game: 40) Belgium vs Portugal	predicted: 3-2, actual: 1-0 -> points: 2
-  game: 41) Croatia vs Spain	predicted: 2-2 spain, actual: tbd
-  game: 42) France vs Switzerland	predicted: 2-0, actual: tbd
-  game: 43) England vs Germany	predicted: 1-1 england, actual: tbd
-  game: 44) Sweden vs Ukraine	predicted: 0-0 sweden, actual: tbd
-  score -> 4
+  game: 41) Croatia vs Spain	predicted: 2-2 spain, actual: 3-5 -> points: 1
+  game: 42) France vs Switzerland	predicted: 2-0, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 1-1 england, actual: 2-0 -> points: 1
+  game: 44) Sweden vs Ukraine	predicted: 0-0 sweden, actual: 1-2 -> points: 0
+  score -> 6
+Player: muhammadusama.malik
+  game: 37) Wales vs Denmark bet was not placed
+  game: 38) Italy vs Austria bet was not placed
+  game: 39) Netherlands vs Czech bet was not placed
+  game: 40) Belgium vs Portugal bet was not placed
+  game: 41) Croatia vs Spain	predicted: 1-2, actual: 3-5 -> points: 1
+  game: 42) France vs Switzerland	predicted: 1-0, actual: 3-3 Switzerland -> points: 0
+  game: 43) England vs Germany	predicted: 1-1, actual: 2-0 -> points: 0
+  game: 44) Sweden vs Ukraine	predicted: 2-0, actual: 1-2 -> points: 0
+  score -> 1
+Player: molly.woo
+  game: 37) Wales vs Denmark bet was not placed
+  game: 38) Italy vs Austria bet was not placed
+  game: 39) Netherlands vs Czech bet was not placed
+  game: 40) Belgium vs Portugal bet was not placed
+  game: 41) Croatia vs Spain	predicted: 0-2, actual: 3-5 -> points: 2
+  game: 42) France vs Switzerland	predicted: 0-0, actual: 3-3 Switzerland -> points: 1
+  game: 43) England vs Germany	predicted: 1-1, actual: 2-0 -> points: 0
+  game: 44) Sweden vs Ukraine	predicted: 1-0, actual: 1-2 -> points: 0
+  score -> 3
 ```
 
 
