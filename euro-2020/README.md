@@ -2,9 +2,67 @@
 
 ### Playoff stage
 
-![o](img/euro-2020-last-16-bracket.jpeg)
+#### Bets, 1/4
+
+![o](img/euro-bracket-cropped-semis.jpeg)
+
+```
+-> Parsing playoffs/bets/Playoffs-1-4.csv
+
+Player: anthony.belyaev
+  game: 45) Switzerland vs Spain	predicted: 0-2, actual: 1-1 Spain -> points: 1
+  game: 46) Belgium vs Italy	predicted: 1-2, actual: 1-2 -> points: 3
+  game: 47) Czech vs Denmark	predicted: 1-2, actual: 1-2 -> points: 3
+  game: 48) Ukraine vs England	predicted: 0-2, actual: 0-4 -> points: 1
+  score -> 8
+Player: leon.patmore
+  game: 45) Switzerland vs Spain	predicted: 4-2, actual: 1-1 Spain -> points: 0 
+  game: 46) Belgium vs Italy	predicted: 2-1, actual: 1-2 -> points: 0
+  game: 47) Czech vs Denmark	predicted: 1-0, actual: 1-2 -> points: 0
+  game: 48) Ukraine vs England	predicted: 0-1, actual: 0-4 -> points: 1
+  score -> 1
+Player: stuart.mackellar
+  game: 45) Switzerland vs Spain	predicted: 0-0, actual: 1-1 Spain -> points: 1
+  game: 46) Belgium vs Italy	predicted: 1-1, actual: 1-2 -> points: 0
+  game: 47) Czech vs Denmark	predicted: 0-1, actual: 1-2 -> points: 2
+  game: 48) Ukraine vs England	predicted: 0-2, actual: 0-4 -> points: 1
+  score -> 4
+Player: peter.jurkovic
+  game: 45) Switzerland vs Spain	predicted: 1-1, actual: 1-1 Spain -> points: 2
+  game: 46) Belgium vs Italy	predicted: 1-2, actual: 1-2 -> points: 3
+  game: 47) Czech vs Denmark	predicted: 1-1, actual: 1-2 -> points: 0
+  game: 48) Ukraine vs England	predicted: 1-2, actual: 0-4 -> points: 1
+  score -> 6
+Player: aurelien.favre
+  game: 45) Switzerland vs Spain	predicted: 1-3, actual: 1-1 Spain -> points: 1
+  game: 46) Belgium vs Italy	predicted: 1-1 Belgium, actual: 1-2 -> points: 0
+  game: 47) Czech vs Denmark	predicted: 1-1 Denmark, actual: 1-2 -> points: 1
+  game: 48) Ukraine vs England	predicted: 0-2, actual: 0-4 -> points: 1
+  score -> 3
+Player: molly.woo
+  game: 45) Switzerland vs Spain	predicted: 0-2, actual: 1-1 Spain -> points: 1
+  game: 46) Belgium vs Italy	predicted: 1-1, actual: 1-2 -> points: 0
+  game: 47) Czech vs Denmark	predicted: 0-0, actual: 1-2 -> points: 0
+  game: 48) Ukraine vs England	predicted: 0-3, actual: 0-4 -> points: 1
+  score -> 2
+Player: dylan.basdeo
+  game: 45) Switzerland vs Spain	predicted: 1-3, actual: 1-1 Spain -> points: 1
+  game: 46) Belgium vs Italy	predicted: 2-2 belgium, actual: 1-2 -> points: 0
+  game: 47) Czech vs Denmark	predicted: 1-2, actual: 1-2 -> points: 3
+  game: 48) Ukraine vs England	predicted: 0-2, actual: 0-4 -> points: 1
+  score -> 5
+Player: muhammadusama.malik
+  game: 45) Switzerland vs Spain	predicted: 1-2, actual: 1-1 Spain -> points: 1
+  game: 46) Belgium vs Italy	predicted: 1-0, actual: 1-2 -> points: 0
+  game: 47) Czech vs Denmark	predicted: 1-0, actual: 1-2 -> points: 0
+  game: 48) Ukraine vs England	predicted: 0-2, actual: 0-4 -> points: 1
+  score -> 2
+```
 
 #### Bets, 1/8
+
+![o](img/euro-2020-last-16-bracket.jpeg)
+
 ```
 -> Parsing playoffs/bets/Playoffs-1.csv
 
