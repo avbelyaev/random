@@ -2,6 +2,36 @@
 
 ### Playoff stage
 
+#### Bets, Semi-final
+```
+-> Parsing playoffs/bets/Semi-final.csv
+
+Player: anthony.belyaev
+  game: 49) Italy vs Spain	predicted: 2-1, actual: 1-1 Italy -> points: 1
+  game: 50) England vs Denmark	predicted: 3-0, actual: tbd
+  score -> 1
+Player: leon.patmore
+  game: 49) Italy vs Spain	predicted: 3-1, actual: 1-1 Italy -> points: 1
+  game: 50) England vs Denmark	predicted: 1-1 England, actual: tbd
+  score -> 1
+Player: stuart.mackellar
+  game: 49) Italy vs Spain	predicted: 1-1, actual: 1-1 Italy -> points: 2
+  game: 50) England vs Denmark	predicted: 2-0, actual: tbd
+  score -> 2
+Player: aurelien.favre
+  game: 49) Italy vs Spain	predicted: 2-1, actual: 1-1 Italy -> points: 1
+  game: 50) England vs Denmark	predicted: 2-0, actual: tbd
+  score -> 1
+Player: peter.jurkovic
+  game: 49) Italy vs Spain	predicted: 2-1, actual: 1-1 Italy -> points: 1
+  game: 50) England vs Denmark	predicted: 1-1, actual: tbd
+  score -> 1
+Player: muhammadusama.malik
+  game: 49) Italy vs Spain	predicted: 1-0, actual: 1-1 Italy -> points: 1
+  game: 50) England vs Denmark	predicted: 1-0, actual: tbd
+  score -> 1
+```
+
 #### Bets, 1/4
 
 ![o](img/euro-bracket-cropped-semis.jpeg)
