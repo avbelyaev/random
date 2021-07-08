@@ -46,17 +46,18 @@ GAME_RESULTS = {
     "39) Netherlands vs Czech": "0-2",
     "40) Belgium vs Portugal": "1-0",
     "41) Croatia vs Spain": "3-5",
-    "42) France vs Switzerland": "3-3 Switzerland",     # <- penalty series 1
+    "42) France vs Switzerland": "3-3 Switzerland",     # won by penalties
     "43) England vs Germany": "2-0",
     "44) Sweden vs Ukraine": "1-2",
     # playoffs, 1/4
-    "45) Switzerland vs Spain": "1-1 Spain",
+    "45) Switzerland vs Spain": "1-1 Spain",            # won by penalties
     "46) Belgium vs Italy": "1-2",
     "47) Czech vs Denmark": "1-2",
     "48) Ukraine vs England": "0-4",
     # semi-final
-    "49) Italy vs Spain": "1-1 Italy",
-    "50) England vs Denmark": "2-1"
+    "49) Italy vs Spain": "1-1 Italy",                  # won by penalties
+    "50) England vs Denmark": "2-1",
+    # final
 }
 
 SKIP = ""

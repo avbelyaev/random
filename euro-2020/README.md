@@ -33,6 +33,10 @@ Player: muhammadusama.malik
   game: 49) Italy vs Spain	predicted: 1-0, actual: 1-1 Italy -> points: 1
   game: 50) England vs Denmark	predicted: 1-0, actual: 2-1 -> points: 2
   score -> 3
+Player: dylan.basdeo
+  game: 49) Italy vs Spain	predicted: 99-0, actual: 1-1 Italy -> points: 1 (special delivery ;) )
+  game: 50) England vs Denmark	predicted: 2-0, actual: 2-1 -> points: 1
+  score -> 2
 ```
 
 #### Bets, 1/4
