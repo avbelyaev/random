@@ -56,7 +56,7 @@ GAME_RESULTS = {
     "48) Ukraine vs England": "0-4",
     # semi-final
     "49) Italy vs Spain": "1-1 Italy",
-    "50) England vs Denmark": ""
+    "50) England vs Denmark": "2-1"
 }
 
 SKIP = ""
