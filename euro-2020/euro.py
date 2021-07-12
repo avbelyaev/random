@@ -58,6 +58,7 @@ GAME_RESULTS = {
     "49) Italy vs Spain": "1-1 Italy",                  # won by penalties
     "50) England vs Denmark": "2-1",
     # final
+    "51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?": "1-1 Italy"         # proudly won by penalties
 }
 
 SKIP = ""

@@ -1,5 +1,45 @@
 ## Euro 2020
 
+Playoff results:
+```csv
+Player,Points
+anthony.belyaev,15
+anton.alechnovic,3
+aurelien.favre,8
+dylan.basdeo,13
+leon.patmore,6
+molly.woo,5
+muhammadusama.malik,6
+peter.jurkovic,14
+stuart.mackellar,12
+```
+
+### Final
+
+```
+Player: anthony.belyaev
+  game: 51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?	predicted: 2-1, actual: 1-1 Italy -> points: 1 
+  score -> 1
+Player: peter.jurkovic
+  game: 51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?	predicted: 2-1, actual: 1-1 Italy -> points: 1
+  score -> 1
+Player: muhammadusama.malik
+  game: 51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?	predicted: 1-2, actual: 1-1 Italy -> points: 0
+  score -> 0
+Player: molly.woo
+  game: 51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?	predicted: 0-1, actual: 1-1 Italy -> points: 0
+  score -> 0
+Player: stuart.mackellar
+  game: 51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?	predicted: 1-1, actual: 1-1 Italy -> points: 2
+  score -> 2
+Player: dylan.basdeo
+  game: 51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?	predicted: 1-2, actual: 1-1 Italy -> points: 0
+  score -> 0
+Player: aurelien.favre
+  game: 51) 🇮🇹Italy or England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ?	predicted: 1-2, actual: 1-1 Italy -> points: 0
+  score -> 0
+```
+
 ### Playoff stage
 
 #### Bets, Semi-final
