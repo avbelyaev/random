@@ -1,0 +1,44 @@
+name: auto-format
+on: pull_request
+jobs:
+  format:
+    # Check if the PR is not from a fork
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Node setup
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+
+      - name: Prettier setup
+        run: npm install -g prettier prettier-plugin-java
+
+      - name: Format
+        run: |
+          echo "Prettifying..."
+          git diff --name-only origin/master > modified_files.txt
+          cat modified_files.txt | while read filename
+          do
+            prettier --write "$filename"
+          done
+          echo "Done!"
+          rm modified_files.txt
+
+      - name: Check if any files were modified
+        id: file-check
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+
+      - name: Commit changes
+        if: steps.file-check.outputs.modified == 'true'
+        run: |
+          git config --global user.name 'Anthony Belyaev'
+          git config --global user.email '<email>'
+          git remote set-url origin https://x-access-token:<github_personal_access_token>@github.com/${{ github.repository }}
+          git commit -am "[auto] Formatting"
+          git push
