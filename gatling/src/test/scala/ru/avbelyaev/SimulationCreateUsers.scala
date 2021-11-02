@@ -8,7 +8,7 @@ import io.gatling.http.protocol.HttpProtocolBuilder
 import scala.concurrent.duration._
 
 
-class MySimulationCreateUsers extends Simulation {
+class SimulationCreateUsers extends Simulation {
 
   private val TARGET_RPS = 50
   private val TEST_TIME_MINUTES = 30
