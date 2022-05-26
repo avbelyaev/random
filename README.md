@@ -1,4 +1,7 @@
-# Some ~~useless~~ useful stuff
+# Some useless stuff
 
 - Union FS experiment
-- Kafka notes
+- Kafka producer
+- Gatling
+- Github actions - prettier
+- Google datastore (GDS) - query objects
