@@ -17,13 +17,12 @@ print(f'namespaces available: {namespaces}')
 #
 # query all kinds of objects available in each namespace
 #
-kinds = []
 for namespace in namespaces:
     print(f"====Processing namespace {namespace}====")
 
     query = client.query(namespace=namespace, kind="__kind__")
     query.keys_only()
-    ks = [entity.key.id_or_name for entity in query.fetch()]
+    kinds = [entity.key.id_or_name for entity in query.fetch()]
     print(f'object kinds available: {kinds}')
 
 
