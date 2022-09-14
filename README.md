@@ -5,3 +5,4 @@
 - Gatling
 - Github actions - prettier
 - Google datastore (GDS) - query objects
+- TruID 2FA iOS app
