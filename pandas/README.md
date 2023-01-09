@@ -1,7 +1,6 @@
 # Pandas example
 
-- Jupyter notebook (.ipynb file)
-- Read all CSVs from the directory `./input`
-- Count matching entries from CSVs
-- Write results as Excel file `counts.xlsx`
-- Read Excel file and send contents as email (via Gmail)
+- Jupyter notebook (see `pandas_csv_example.ipynb` file)
+- Read CSVs, count rows, count mean value
+- Write results to Excel file
+- Read Excel file and send contents as email over Gmail
