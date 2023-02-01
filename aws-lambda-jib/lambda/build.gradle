@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'com.google.cloud.tools.jib' version '3.3.1'
+}
+
+apply plugin: "com.google.cloud.tools.jib"
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+    implementation 'com.amazonaws:aws-lambda-java-events:2.2.8'
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    testImplementation 'org.apache.logging.log4j:log4j-api:[2.17.1,)'
+    testImplementation 'org.apache.logging.log4j:log4j-core:[2.17.1,)'
+    testImplementation 'org.apache.logging.log4j:log4j-slf4j18-impl:[2.17.1,)'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// JIB
+
+task copyRuntimeDependencies(type: Copy) {
+	from configurations.runtimeClasspath
+	into 'src/main/jib/var/task/lib'                                // preserve lib structure in the container
+}
+
+task copyBuildClasses(type: Copy) {
+	from 'build/classes/java/main'
+	into 'src/main/jib/var/task'                                    // preserve classes structure in the container
+}
+
+jibDockerBuild.dependsOn copyRuntimeDependencies
+jibDockerBuild.dependsOn copyBuildClasses
+build.dependsOn jibDockerBuild
+
+jib {
+	allowInsecureRegistries = true
+	from {
+		image = 'public.ecr.aws/lambda/java:11'
+	}
+	to {
+		image = 'my-lambdas/my-basic-lambda:latest'
+	}
+	container {
+		entrypoint = '/lambda-entrypoint.sh'                        // preserve the ENTRYPOINT from the base image
+		args = ['com.avbelyaev.example.Handler::handleRequest']     // pass handler as CMD - an argument to the entrypoint
+	}
+}

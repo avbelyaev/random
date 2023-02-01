@@ -1,0 +1,4 @@
+- Hello there
+- General Kenobi!
+
+this file should end up in the root of the container
