@@ -39,7 +39,7 @@ task copyRuntimeDependencies(type: Copy) {
 }
 
 task copyBuildClasses(type: Copy) {
-	from 'build/classes/java/main'
+	from compileJava                                                // == build/classes/java/main
 	into 'src/main/jib/var/task'                                    // preserve classes structure in the container
 }
 
