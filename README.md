@@ -8,3 +8,4 @@
 - TruID 2FA iOS app
 - Pandas read/write csv/excel and send as gmail
 - Build AWS Lambda image with JIB
+- Zenly
