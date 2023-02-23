@@ -1,13 +1,14 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["src/**/*", "src/**/*.vue", "src/**/*.ts"],
+  "exclude": ["node_modules"],
+  "files": ["ts-shim.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-
   "references": [
     {
       "path": "./tsconfig.config.json"

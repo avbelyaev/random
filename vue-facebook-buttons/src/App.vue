@@ -1,11 +1,16 @@
-<script setup lang="ts">
-import FacebookButtons from "@/components/FacebookButtons.vue";
-</script>
-
 <template>
   <div id="app">
     <main>
-      <FacebookButtons/>
+      <facebook-buttons/>
     </main>
   </div>
 </template>
+
+<script>
+  import FacebookButtons from "@/components/FacebookButtons";
+
+  export default {
+    components: {FacebookButtons}
+  }
+
+</script>
