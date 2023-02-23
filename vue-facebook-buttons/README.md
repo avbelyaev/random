@@ -1,40 +1,37 @@
-# vue-facebook-buttons
+# Vue multiple Facebook login buttons issue
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+Install and run:
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Buttons are supposed to use separate login options and have different app IDs:
+- 966242223397117 for Facebook
+- 349506013672626 for Instagram
 
-```sh
-npm run build
-```
+![o](./img/index.png)
+
+But whichever buttons gets rendered first, the same app IDs gets stuck for both of them.
+
+Say you click on Facebook login - you'll get the popup with `app_id=966242223397117`
+![o](./img/click-fb.png)
+
+But if you click on Instagram login - you'll get the same app_id while the expected one is `349506013672626`
+![o](./img/click-ig.png)
+
+If you reorder them in FacebookButtons.vue, then you'll keep getting the ID from the one which is on top
+
+---
+
+And if you move them to separate views, say 1 button per view
+- view-1, button-1, `app_id=foo`
+- view-2, button-2, `app_id=bar`
+
+Whichever get's clicked on first, has it's ID stuck
+- So if you navigate on view-1 first and click button-1, you'll get the `app_id=foo`
+- Now if you navigate the view-2 and click on button-2, you'll get the same `app_id=foo`
+- But if you refresh browser on view-2 and click once more, you'll get proper `app_id=bar`
+- But if you navigate back to view-1, you'll still get `app_id=bar` while you wanted `foo`
+
+Which may be due to unmount/unload issues
