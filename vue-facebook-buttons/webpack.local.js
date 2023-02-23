@@ -1,7 +1,5 @@
 const path = require('path');
-// const commonWebpackConfig = require('./webpack.common.js');
 const webpack = require('webpack');
-// const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require("vue-loader");
 
@@ -73,7 +71,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../index.html'),
+      template: path.resolve(__dirname, 'index.html'),
       inject: true,
       chunks: ['main'],
       title: 'Vue Facebook buttons',
@@ -83,7 +81,7 @@ module.exports = {
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      '@': path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, './src'),
     },
     extensions: ['*', '.ts', '.js', '.vue', '.json'],
   },

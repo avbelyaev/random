@@ -2,7 +2,7 @@
   "name": "vue-facebook-buttons",
   "version": "0.0.0",
   "scripts": {
-    "dev": "webpack serve --progress --config config/webpack.local.js",
+    "dev": "webpack serve --progress --config webpack.local.js",
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
