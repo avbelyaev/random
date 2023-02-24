@@ -2,8 +2,7 @@
   "name": "producer",
   "version": "0.0.0",
   "scripts": {
-    "dev": "webpack serve --progress --config webpack.local.js",
-    "type-check": "vue-tsc --noEmit"
+    "dev": "webpack serve --progress --config webpack.producer.js"
   },
   "dependencies": {
     "babel-loader": "^8.2.3",
