@@ -9,3 +9,4 @@
 - Pandas read/write csv/excel and send as gmail
 - Build AWS Lambda image with JIB
 - Zenly
+- MicroFrontends
