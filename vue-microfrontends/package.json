@@ -1,0 +1,10 @@
+{
+  "name": "vue-microfrontends",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "producer",
+      "consumer"
+    ]
+  }
+}
