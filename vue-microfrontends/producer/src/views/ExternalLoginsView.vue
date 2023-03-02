@@ -22,5 +22,6 @@ export default {
 <style lang="scss">
 .logins {
   background-color: darkgray;
+  height: 200px;
 }
 </style>

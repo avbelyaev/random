@@ -9,14 +9,6 @@
       <template v-slot:login>Login with Facebook app 9662</template>
     </v-facebook-login>
 
-    <p>Login with Instagram</p>
-    <v-facebook-login
-      :app-id="'349506013672626'"
-      :login-options="{ scope: 'instagram_basic', }"
-      @sdk-init="handleIgSdkInit"
-    >
-      <template v-slot:login>Login with Instagram app 3495</template>
-    </v-facebook-login>
   </div>
 </template>
 
@@ -33,7 +25,6 @@ export default {
   data() {
     return {
       fbScope: {},
-      igScope: {},
     }
   },
 
@@ -41,10 +32,6 @@ export default {
     handleFbSdkInit({scope}) {
       console.log('init FB');
       this.fbScope = scope;
-    },
-    handleIgSdkInit({scope}) {
-      console.log('init IG');
-      this.igScope = scope;
     },
   }
 }
