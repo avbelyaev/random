@@ -1,4 +1,4 @@
-# Local consumer app
+# Host app
 
 ```bash
 npm install

@@ -14,7 +14,7 @@ export default {
     return {
       posts: [
         {message: 'Instagram is coming soon'},
-        {message: 'Whatsapp will finally be deleted'}
+        {message: 'Whatsapp to be removed'},
       ]
     }
   }

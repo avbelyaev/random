@@ -15,7 +15,7 @@ module.exports = {
   },
   devServer: {
     host: '127.0.0.1',
-    port: 5002,
+    port: 5001,
   },
   optimization: {
     minimize: false,
@@ -43,15 +43,18 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'remoteApp',
+      name: 'hostApp',
       filename: 'remoteEntry.js',
-      exposes: {
-        './Feed': './src/feed/Feed',
-        './LoginsView': './src/logins/LoginsView',
+      remotes: {
+        remoteApp: 'remoteApp@http://localhost:5002/remoteEntry.js',
       },
+      exposes: {},
       shared: {
+        // ...deps,
         vue: {
           singleton: true,
+          // requiredVersion: deps.vue,
+          // eager: true,
         },
       },
     }),
