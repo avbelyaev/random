@@ -1,4 +1,4 @@
-import {createApp} from 'vue';
+import {createApp, defineAsyncComponent} from 'vue';
 import App from './App.vue';
 import {createRouter, createWebHistory} from "vue-router"
 
@@ -30,4 +30,9 @@ const router = createRouter({
 
 const app = createApp(App)
 app.use(router);
+
+// const RemoteStore = defineAsyncComponent(() => import('hostApp/store'));
+// app.component('remote-store', RemoteStore);
+
+
 app.mount('#app');

@@ -49,9 +49,13 @@ module.exports = {
         './Feed': './src/feed/Feed',
         './LoginsView': './src/logins/LoginsView',
       },
+      remotes: {
+        hostApp: 'hostApp@http://localhost:5001/remoteEntry.js'
+      },
       shared: {
         vue: {
           singleton: true,
+          eager: true
         },
       },
     }),

@@ -46,15 +46,18 @@ module.exports = {
       name: 'hostApp',
       filename: 'remoteEntry.js',
       remotes: {
+        host: 'hostApp@http://localhost:5001/remoteEntry.js',
         remoteApp: 'remoteApp@http://localhost:5002/remoteEntry.js',
       },
-      exposes: {},
+      exposes: {
+        './store': './src/store'
+      },
       shared: {
         // ...deps,
         vue: {
           singleton: true,
           // requiredVersion: deps.vue,
-          // eager: true,
+          eager: true,
         },
       },
     }),
