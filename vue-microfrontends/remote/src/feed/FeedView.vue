@@ -9,7 +9,6 @@
 
 <script>
 import Feed from "./Feed";
-import VFacebookLogin from 'vue-facebook-login-component'
 
 export default {
   name: 'HomeView',
@@ -26,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .home {
   background-color: deepskyblue;
   height: 200px;

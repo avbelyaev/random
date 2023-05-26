@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .feed {
   background-color: yellow;
   width: 250px;

@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .logins {
   background-color: darkgray;
   height: 200px;
