@@ -1,13 +1,13 @@
 {
-  "name": "producer",
-  "version": "0.0.0",
+  "name": "remote",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "webpack serve --progress --config webpack.producer.js"
+    "dev": "webpack serve --progress --config webpack.remote.js"
   },
   "dependencies": {
     "babel-loader": "^8.2.3",
     "babel-runtime": "6.23.0",
-    "core-js": "^3.19.3",
+    "core-js": "3.23.3",
     "file-loader": "^6.2.0",
     "html-loader": "^3.0.1",
     "css-loader": "^6.5.1",
@@ -15,7 +15,7 @@
     "sass": "^1.51.0",
     "sass-loader": "^9.0.0",
     "vue-style-loader": "^4.1.2",
-    "vue": "^2.7.10",
+    "vue": "^2.7.14",
     "vue-facebook-login-component": "^4.0.2",
     "webpack": "^5.65.0",
     "webpack-bundle-analyzer": "^4.4.1",

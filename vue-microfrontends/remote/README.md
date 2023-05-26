@@ -1,4 +1,4 @@
-# Remote producer app
+# Remote app
 
 ```sh
 npm install

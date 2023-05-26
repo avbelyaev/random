@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="nav">
-      <p>This is remote producer app</p>
+      <p>This is remote app</p>
       <p>
-        <router-link to="/home">Go home</router-link>
-        <router-link to="/extlogins">Go login</router-link>
+        <router-link to="/feed">Feed</router-link>
+        <router-link to="/logins">Login</router-link>
       </p>
     </div>
     <router-view></router-view>

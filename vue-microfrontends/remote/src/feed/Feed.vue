@@ -1,6 +1,5 @@
 <template>
   <div class="feed">
-    <p>What's new</p>
     <li v-for="post in posts">
       {{ post.message }}
     </li>

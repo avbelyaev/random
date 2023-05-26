@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
-import ExternalLoginsView from "./views/ExternalLoginsView.vue";
-import HomeView from "./views/HomeView.vue";
+import FeedView from "@/feed/FeedView.vue";
+import LoginsView from "@/logins/LoginsView.vue";
 
 
 Vue.use(VueRouter)
@@ -11,18 +11,18 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     {
-      path: '/extlogins*',
+      path: '/logins*',
       name: 'ExternalLogins',
-      component: ExternalLoginsView
+      component: LoginsView
     },
     {
-      path: '/home',
-      name: 'Home',
-      component: HomeView
+      path: '/feed',
+      name: 'Feed',
+      component: FeedView
     },
     {
       path: '/',
-      redirect: '/home',
+      redirect: '/feed',
     },
   ]
 })

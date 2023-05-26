@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
 const {VueLoaderPlugin} = require("vue-loader");
 
+const deps = require('./package.json').dependencies;
+
 const babelOptions = {
   presets: ['@babel/preset-env'],
   plugins: ['@babel/plugin-syntax-dynamic-import'],
@@ -56,21 +58,23 @@ module.exports = {
     ],
   },
   plugins: [
+    new VueLoaderPlugin(),
     new ModuleFederationPlugin({
       name: 'remoteApp',
       filename: 'remoteEntry.js',
       exposes: {
-        './ExternalLoginsView': './src/views/ExternalLoginsView',
-        './Feed': './src/components/Feed',
+        // './ExternalLoginsView': './src/views/ExternalLoginsView',
+        './Feed': './src/feed/Feed.vue',
       },
       shared: {
+        // ...deps,
         vue: {
           singleton: true,
+          // requiredVersion: deps.vue
           eager: true,
         },
       },
     }),
-    new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'index.html'),
