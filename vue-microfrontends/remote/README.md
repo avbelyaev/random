@@ -1,6 +1,6 @@
 # Remote app
 
 ```sh
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
