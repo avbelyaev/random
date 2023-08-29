@@ -1,4 +1,4 @@
-package com.avbelyaev
+package com.avbelyaev.crawler.utils
 
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element

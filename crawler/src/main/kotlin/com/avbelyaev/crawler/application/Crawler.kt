@@ -1,5 +1,8 @@
-package com.avbelyaev
+package com.avbelyaev.crawler.application
 
+import com.avbelyaev.crawler.domain.model.website.Node
+import com.avbelyaev.crawler.port.out.WebClient
+import com.avbelyaev.crawler.utils.Parser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -30,13 +33,13 @@ class Crawler(
     private val workers = mutableListOf<Job>()
     private val workersScope = CoroutineScope(Dispatchers.Unconfined)
 
-    fun crawl(nodes: List<Node>) = runBlocking {
+    fun crawl(seed: Node) = runBlocking {
         workersScope.launch {
             startWorkers()
         }
 
-        log.info { "Crawling $nodes" }
-        sendNextTasks(nodes.map { Task(it.url) }, this)
+        log.info { "Crawling $seed" }
+        sendNextTasks(listOf(Task(seed)), this)
 
         workers.joinAll()
     }
@@ -48,13 +51,16 @@ class Crawler(
             val worker = launch {
                 while (isActive) {
                     val task = tasks.receive()
-                    val nextTasks = task.execute()
 
+                    log.debug { "Worker $i started on ${task.node.url}" }
+
+                    val nextTasks = task.execute()
                     pending.decrementAndGet()
 
                     sendNextTasks(nextTasks, workersScope)
 
-                    if (pending.get() == 0) {
+                    if (pending.get() == 0 || visited.size > 5) {
+                        log.debug { "closing" }
                         tasks.close()
                     }
                 }
@@ -64,37 +70,38 @@ class Crawler(
     }
 
     private fun sendNextTasks(nextTasks: List<Task>, scope: CoroutineScope) {
+//        log.debug { "sending ${nextTasks.size} more" }
         for (nextTask in nextTasks) {
             scope.launch(Dispatchers.Default) {
                 pending.incrementAndGet()
-                tasks.send(nextTask)
+                tasks.trySend(nextTask)
             }
         }
     }
 
 
-    inner class Task(private val url: String) {
+    inner class Task(val node: Node) {
 
         suspend fun execute(): List<Task> {
-            delay(2000L)                                    // TODO throttle
+            delay(1000L)                                                    // TODO throttle requests
             return try {
-                val document = webClient.fetchDocument(url)
+//                log.info { "Starting ${node.url}" }
+                val document = webClient.fetchDocument(node.url)
 
-                visited.add(url)
+                visited.add(node.url)
 
-                val links = parser.extractLinks(document, visited).map { Task(it) }
-                log.debug { "Done $url. Found ${links.size} new links. Visited ${visited.size}. Pending ${pending.get()}" }
-                links
+                val links = parser.extractLinks(document, visited).map { Node(it) }
+                node.children.addAll(links)
+                log.debug { "Done ${node.url}. Found ${links.size} new links. Visited ${visited.size}. Pending ${pending.get()}" }
+                links.map { Task(it) }
 
-            } catch (e: Exception) {
-                log.error { "Could not parse $url. Reason: ${e.message}" }
+            } catch (e: Exception) {                                                // TODO catch properly
+                log.error { "Could not crawl ${node.url}. Reason: ${e.message}" }
                 listOf()
+
+//            } finally {
+//
             }
         }
     }
 }
-
-data class Node(
-    val url: String,
-    val children: MutableSet<Node> = mutableSetOf()
-)
