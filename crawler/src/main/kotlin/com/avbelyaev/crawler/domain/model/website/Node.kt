@@ -5,9 +5,9 @@ data class Node(
     val children: MutableSet<Node> = mutableSetOf()
 ) {
     fun asTree(indent: Int): String {
-        val repr = StringBuilder("($url)\n")
+        val repr = StringBuilder("[ $url ]\n")
         for (child in children) {
-            val line = ".".repeat(indent) + "-" + child.asTree(indent + 1)
+            val line = ".".repeat(indent) + child.asTree(indent + 1)
             repr.append(line)
         }
         return repr.toString()

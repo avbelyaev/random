@@ -6,9 +6,11 @@ import com.avbelyaev.crawler.utils.Parser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
@@ -29,7 +31,7 @@ class Crawler(
     private val pending = AtomicInteger()
     private val visited = ConcurrentHashMap.newKeySet<String>()
 
-    private val tasks = Channel<Task>()
+    private val tasks = Channel<Task>(capacity = Channel.UNLIMITED)         // TODO limit queue size
     private val workers = mutableListOf<Job>()
     private val workersScope = CoroutineScope(Dispatchers.Unconfined)
 
@@ -49,7 +51,7 @@ class Crawler(
             log.debug { "Starting worker $i" }
 
             val worker = launch {
-                while (isActive) {
+                while (isActive && !tasks.isClosedForReceive) {
                     val task = tasks.receive()
 
                     log.debug { "Worker $i started on ${task.node.url}" }
@@ -57,11 +59,13 @@ class Crawler(
                     val nextTasks = task.execute()
                     pending.decrementAndGet()
 
+//                    ensureActive()
                     sendNextTasks(nextTasks, workersScope)
 
-                    if (pending.get() == 0 || visited.size > 5) {
+                    if (pending.get() == 0 || visited.size > 20) {
                         log.debug { "closing" }
                         tasks.close()
+                        this.cancel()
                     }
                 }
             }
@@ -70,12 +74,14 @@ class Crawler(
     }
 
     private fun sendNextTasks(nextTasks: List<Task>, scope: CoroutineScope) {
-//        log.debug { "sending ${nextTasks.size} more" }
         for (nextTask in nextTasks) {
-            scope.launch(Dispatchers.Default) {
-                pending.incrementAndGet()
-                tasks.trySend(nextTask)
-            }
+//            if (!tasks.isClosedForSend) {
+//            scope.ensureActive()
+                scope.launch(Dispatchers.Default) {
+                    tasks.trySend(nextTask)
+                    pending.incrementAndGet()
+                }
+//            }
         }
     }
 
@@ -85,7 +91,6 @@ class Crawler(
         suspend fun execute(): List<Task> {
             delay(1000L)                                                    // TODO throttle requests
             return try {
-//                log.info { "Starting ${node.url}" }
                 val document = webClient.fetchDocument(node.url)
 
                 visited.add(node.url)
@@ -98,9 +103,6 @@ class Crawler(
             } catch (e: Exception) {                                                // TODO catch properly
                 log.error { "Could not crawl ${node.url}. Reason: ${e.message}" }
                 listOf()
-
-//            } finally {
-//
             }
         }
     }
