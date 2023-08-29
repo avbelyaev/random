@@ -2,10 +2,7 @@ package com.avbelyaev
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -31,73 +28,44 @@ class Crawler(
 
     private val tasks = Channel<Task>()
     private val workers = mutableListOf<Job>()
+    private val workersScope = CoroutineScope(Dispatchers.Unconfined)
 
-//    private val supervisorJob = SupervisorJob()
-    private val scope = CoroutineScope(Dispatchers.Unconfined)
-
-    init {
-        scope.launch{
+    fun crawl(nodes: List<Node>) = runBlocking {
+        workersScope.launch {
             startWorkers()
         }
 
-    }
-
-    //    fun crawl(tasks: List<Task>) = runBlocking {
-//        log.info { "Crawling $seeds" }
-//
-//        for (seed in seeds) {
-//            pending.incrementAndGet()
-//            tasks.send(Task(seed.url))
-//        }
-//
-//        workers.joinAll()
-//    }
-    fun crawl(nodes: List<Node>) = runBlocking {
         log.info { "Crawling $nodes" }
         sendNextTasks(nodes.map { Task(it.url) }, this)
+
+        workers.joinAll()
     }
 
-    suspend fun startWorkers() = coroutineScope {
-
+    private suspend fun startWorkers() = coroutineScope {
         repeat(workersNum) { i ->
-            log.debug { "Launching worker $i" }
+            log.debug { "Starting worker $i" }
+
             val worker = launch {
                 while (isActive) {
                     val task = tasks.receive()
-
-                    log.debug { "Worker $i starts on ${task.url}" }
-
                     val nextTasks = task.execute()
 
                     pending.decrementAndGet()
-                    visited.add(task.url)
 
-//                    sendNextTasks(nextTasks, this)
-                    for (nextTask in nextTasks) {
-                        launch(Dispatchers.Default) {
-                            pending.incrementAndGet()
-                            tasks.send(nextTask)
-                        }
-                    }
+                    sendNextTasks(nextTasks, workersScope)
 
                     if (pending.get() == 0) {
-                        log.debug { "close" }
                         tasks.close()
                     }
-                    println("isactive $isActive")
                 }
-                println("isactive2 $isActive")
             }
             workers.add(worker)
         }
-
-        log.debug { "here" }
-//        workers.joinAll()
     }
 
     private fun sendNextTasks(nextTasks: List<Task>, scope: CoroutineScope) {
         for (nextTask in nextTasks) {
-            scope.launch(Dispatchers.Unconfined) {
+            scope.launch(Dispatchers.Default) {
                 pending.incrementAndGet()
                 tasks.send(nextTask)
             }
@@ -105,17 +73,18 @@ class Crawler(
     }
 
 
-    inner class Task(val url: String) {
+    inner class Task(private val url: String) {
 
         suspend fun execute(): List<Task> {
-//            delay(1000L)
+            delay(2000L)                                    // TODO throttle
             return try {
-                log.debug { "fetching" }
                 val document = webClient.fetchDocument(url)
-                log.debug { "parsing " }
-                val links = parser.extractLinks(document, visited)
-                log.debug { "Done $url. Found ${links.size} new links. Visited ${visited.size}. ToProcess ${pending.get()}" }
-                links.map { Task(it) }
+
+                visited.add(url)
+
+                val links = parser.extractLinks(document, visited).map { Task(it) }
+                log.debug { "Done $url. Found ${links.size} new links. Visited ${visited.size}. Pending ${pending.get()}" }
+                links
 
             } catch (e: Exception) {
                 log.error { "Could not parse $url. Reason: ${e.message}" }
