@@ -5,6 +5,7 @@ import com.avbelyaev.crawler.port.out.WebClient
 import com.avbelyaev.crawler.utils.Parser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.Channel
@@ -49,6 +50,7 @@ class Crawler(
         tasks.close()
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     private suspend fun startWorkers() = coroutineScope {
         repeat(workersNum) { i ->
             val worker = launch {
@@ -57,13 +59,19 @@ class Crawler(
 
                     log.debug { "Worker $i started on $task" }
                     val next = task.execute()
-                    log.debug { "Worker $i finished $task. Seen ${seen.size}" }
-
-                    enqueueNext(next, workersScope)
-
                     pending.decrementAndGet()
+                    log.debug { "Worker $i finished $task. Seen ${seen.size}" }
+                    log.debug { ">pending ${pending.get()}" }
 
-                    if (pending.get() <= 0) {
+                    for (nxt in next) {
+                        tasks.send(Task(nxt))
+                        pending.incrementAndGet()
+                    }
+                    log.debug { ">>pending ${pending.get()}" }
+
+                    log.debug { ">>>pending ${pending.get()}" }
+
+                    if (tasks.isEmpty && pending.get() <= 0) {
                         log.debug { "Stopping workers" }
                         workersScope.cancel()
                     }
@@ -74,8 +82,9 @@ class Crawler(
     }
 
     private fun enqueueNext(next: List<Node>, scope: CoroutineScope) {
-        for (nxt in next) {
-            scope.launch(Dispatchers.Default) {
+
+        scope.launch(Dispatchers.Default) {
+            for (nxt in next) {
                 tasks.send(Task(nxt))
                 pending.incrementAndGet()
             }
@@ -91,7 +100,7 @@ class Crawler(
                 val document = webClient.fetchDocument(node.url)
                 val links = parser.extractLinks(document).map { Node(it) }
                 node.children.addAll(links)
-
+                log.debug { ">>> links from ${node.url}: $links" }
                 mutex.withLock {
                     val nextLinks = links.filter { !seen.contains(it.url) }
                     seen.addAll(links.map { it.url })
