@@ -12,6 +12,7 @@ class Parser(private val scopedToDomain: String) {
             .map { sanitizeUrl(it) }
             .filter { it.startsWith("http") && !it.endsWith(".pdf") }
             .filter { getDomainName(it) == scopedToDomain }
+//            .filter { it.contains("/legal/") }
             .distinct()
             .toList()
     }

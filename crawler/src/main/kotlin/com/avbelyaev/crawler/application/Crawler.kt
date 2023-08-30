@@ -29,7 +29,7 @@ class Crawler(
     private val log = KotlinLogging.logger {}
 
     private val pending = AtomicInteger()
-    private val visited = mutableSetOf<String>()
+    private val seen = mutableSetOf<String>()
     private val mutex = Mutex()
 
     private val tasks = Channel<Task>(capacity = Channel.UNLIMITED)         // TODO limit queue size
@@ -37,12 +37,13 @@ class Crawler(
     private val workersScope = CoroutineScope(Dispatchers.Unconfined)
 
     fun crawl(seed: Node) = runBlocking {
+        log.debug { "Starting $workersNum workers" }
         workersScope.launch {
             startWorkers()
         }
 
         log.info { "Crawling $seed" }
-        sendNextTasks(listOf(Task(seed)), this)
+        enqueueNext(listOf(seed), this)
 
         workers.joinAll()
         tasks.close()
@@ -50,25 +51,21 @@ class Crawler(
 
     private suspend fun startWorkers() = coroutineScope {
         repeat(workersNum) { i ->
-            log.debug { "Starting worker $i" }
-
             val worker = launch {
                 while (isActive) {
                     val task = tasks.receive()
 
                     log.debug { "Worker $i started on $task" }
-                    val nextTasks = task.execute()
-                    log.debug { "Worker $i finished $task. All ${visited.size}" }
+                    val next = task.execute()
+                    log.debug { "Worker $i finished $task. Seen ${seen.size}" }
 
-                    sendNextTasks(nextTasks, workersScope)
+                    enqueueNext(next, workersScope)
 
                     pending.decrementAndGet()
 
                     if (pending.get() <= 0) {
+                        log.debug { "Stopping workers" }
                         workersScope.cancel()
-//                        this.cancel()
-//                        tasks.close()
-                        log.debug { "Stopping worker $i" }
                     }
                 }
             }
@@ -76,10 +73,10 @@ class Crawler(
         }
     }
 
-    private fun sendNextTasks(nextTasks: List<Task>, scope: CoroutineScope) {
-        for (nextTask in nextTasks) {
+    private fun enqueueNext(next: List<Node>, scope: CoroutineScope) {
+        for (nxt in next) {
             scope.launch(Dispatchers.Default) {
-                tasks.send(nextTask)
+                tasks.send(Task(nxt))
                 pending.incrementAndGet()
             }
         }
@@ -88,7 +85,7 @@ class Crawler(
 
     inner class Task(private val node: Node) {
 
-        suspend fun execute(): List<Task> {
+        suspend fun execute(): List<Node> {
             delay(1000L)                                                    // TODO throttle requests
             return try {
                 val document = webClient.fetchDocument(node.url)
@@ -96,10 +93,9 @@ class Crawler(
                 node.children.addAll(links)
 
                 mutex.withLock {
-                    val nextLinks = links.filter { !visited.contains(it.url) }
-                    visited.addAll(links.map { it.url })
-
-                    return nextLinks.map { Task(it) }
+                    val nextLinks = links.filter { !seen.contains(it.url) }
+                    seen.addAll(links.map { it.url })
+                    return nextLinks
                 }
 
             } catch (e: Exception) {                                                // TODO catch properly

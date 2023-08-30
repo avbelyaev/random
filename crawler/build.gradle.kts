@@ -6,8 +6,6 @@ plugins {
 group = "com.avbelyaev"
 version = "1.0"
 
-val ktorVersion: String by project
-
 repositories {
     mavenCentral()
 }
@@ -15,8 +13,6 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
 
-    implementation("io.ktor:ktor-client-core:$ktorVersion")
-    implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("org.jsoup:jsoup:1.16.1")
 
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
@@ -31,7 +27,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(17)
 }
 
 application {
