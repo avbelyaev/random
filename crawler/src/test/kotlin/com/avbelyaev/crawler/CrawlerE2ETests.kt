@@ -1,7 +1,7 @@
 package com.avbelyaev.crawler
 
 import com.avbelyaev.crawler.application.Crawler
-import com.avbelyaev.crawler.domain.Node
+import com.avbelyaev.crawler.domain.Link
 import com.avbelyaev.crawler.port.out.WebClient
 import com.avbelyaev.crawler.utils.Parser
 import com.github.tomakehurst.wiremock.junit5.WireMockTest
@@ -21,55 +21,48 @@ class CrawlerE2ETests {
     @Test
     fun shouldCrawlAllLinks() {
         // given
-        val bazPage = Node("$WIREMOCK_HOST/baz")
-        val foo2Page = Node("$WIREMOCK_HOST/foo-2")
-        val fooPage = Node("$WIREMOCK_HOST/foo", children = mutableSetOf(bazPage, foo2Page))
-        val barPage = Node("$WIREMOCK_HOST/bar", children = mutableSetOf(bazPage))
-        val aboutPage = Node("$WIREMOCK_HOST/about")
-        val rootPage = Node("$WIREMOCK_HOST/index.html", children = mutableSetOf(fooPage, barPage, aboutPage))
+        val baz = Link("$WIREMOCK_HOST/baz")
+        val foo2 = Link("$WIREMOCK_HOST/foo-2")
+        val foo = Link("$WIREMOCK_HOST/foo", children = mutableSetOf(baz, foo2))
+        val bar = Link("$WIREMOCK_HOST/bar", children = mutableSetOf(baz))
+        val about = Link("$WIREMOCK_HOST/about")
+        val root = Link("$WIREMOCK_HOST/index.html", children = mutableSetOf(foo, bar, about))
 
         // and
         val crawler = Crawler(workersNum = 2, webclient, parser)
-        val seed = Node(url = "$WIREMOCK_HOST/index.html")
+        val seed = Link(url = "$WIREMOCK_HOST/index.html")
 
         // when
         crawler.crawl(seed)
         println(seed.asTree())
 
         // then
-        Assertions.assertEquals(rootPage, seed)
+        Assertions.assertEquals(root, seed)
     }
 
     @Test
     fun shouldCrawlCyclicLinks() {
         // given
-        val cyclic =
-            Node(url = "$WIREMOCK_HOST/cycle/cycle-a.html",
-                children = mutableSetOf(
-                    Node(url = "$WIREMOCK_HOST/cycle/cycle-b.html",
-                        children = mutableSetOf(
-                            Node(url = "$WIREMOCK_HOST/cycle/cycle-c.html",
-                                children = mutableSetOf())
-                        ))
-                ))
-
-        // and
         val crawler = Crawler(workersNum = 2, webclient, parser)
-        val seed = Node(url = "$WIREMOCK_HOST/cycle/cycle-a.html")
+        val seed = Link(url = "$WIREMOCK_HOST/cycle/cycle-a.html")
 
         // when
         crawler.crawl(seed)
         println(seed.asTree())
 
         // then
-        Assertions.assertEquals(cyclic, seed)
+        Assertions.assertEquals("$WIREMOCK_HOST/cycle/cycle-a.html", seed.url)
+        Assertions.assertEquals("$WIREMOCK_HOST/cycle/cycle-b.html", seed.children.toList().first().url)
+        Assertions.assertEquals("$WIREMOCK_HOST/cycle/cycle-c.html", seed.children.toList().first().children.toList().first().url)
+        Assertions.assertEquals("$WIREMOCK_HOST/cycle/cycle-a.html", seed.children.toList().first().children.toList().first().children.first().url)
+        Assertions.assertTrue(seed.children.toList().first().children.toList().first().children.first().children.isEmpty())
     }
 
     @Test
     fun shouldCrawlIfNoInternalLinksPresent() {
         // given
         val crawler = Crawler(workersNum = 2, webclient, parser)
-        val seed = Node(url = "$WIREMOCK_HOST/nolinks")
+        val seed = Link(url = "$WIREMOCK_HOST/nolinks")
 
         // when
         crawler.crawl(seed)

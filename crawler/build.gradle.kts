@@ -15,6 +15,8 @@ dependencies {
 
     implementation("org.jsoup:jsoup:1.16.1")
 
+    implementation("com.xenomachina:kotlin-argparser:2.0.7")
+
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
     implementation("ch.qos.logback:logback-classic:1.4.7")
 
@@ -31,12 +33,12 @@ kotlin {
 }
 
 application {
-    mainClass.set("com.avbelyaev.AppKt")
+    mainClass.set("com.avbelyaev.crawler.AppKt")
 }
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "com.avbelyaev.AppKt"
+        attributes["Main-Class"] = "com.avbelyaev.crawler.AppKt"
     }
     configurations["compileClasspath"].forEach { file: File ->
         from(zipTree(file.absoluteFile))

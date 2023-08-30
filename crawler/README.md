@@ -1,9 +1,13 @@
 # Crawler
 
+Kotlin coroutine-based web crawler. 
+Coroutines API turned out to be still in experimental state
+
 Limitations
 - web client doesnt have retries, connection timeouts , doesnt throttle
 - queue doesnt persist
 - doesnt handle exceptions granularly
+- might be more efficient :)
 
 
 ## Build & run

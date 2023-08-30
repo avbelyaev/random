@@ -1,9 +1,11 @@
 package com.avbelyaev.crawler.domain
 
-data class Node(
+data class Link(
     val url: String,
-    val children: MutableSet<Node> = mutableSetOf()
+    val children: MutableSet<Link> = mutableSetOf()
 ) {
+    fun addChildren(children: List<Link>) = children
+
     fun asTree() = asTree(1)
 
     private fun asTree(indent: Int): String {

@@ -1,6 +1,6 @@
 package com.avbelyaev.crawler.application
 
-import com.avbelyaev.crawler.domain.Node
+import com.avbelyaev.crawler.domain.Link
 import com.avbelyaev.crawler.port.out.WebClient
 import com.avbelyaev.crawler.utils.Parser
 import kotlinx.coroutines.CoroutineScope
@@ -10,7 +10,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
@@ -30,14 +29,17 @@ class Crawler(
     private val log = KotlinLogging.logger {}
 
     private val pending = AtomicInteger()
-    private val seen = mutableSetOf<String>()
+    private val enqueued = mutableSetOf<String>()
     private val mutex = Mutex()
 
-    private val tasks = Channel<Task>(capacity = Channel.UNLIMITED)         // TODO limit queue size
+    private val taskChannel = Channel<Task>(capacity = Channel.UNLIMITED)  // serves as a blocking queue between coroutines
     private val workers = mutableListOf<Job>()
     private val workersScope = CoroutineScope(Dispatchers.Unconfined)
 
-    fun crawl(seed: Node) = runBlocking {
+    fun crawl(seed: Link) = runBlocking {
+        pending.set(0)
+        enqueued.clear()
+
         log.debug { "Starting $workersNum workers" }
         workersScope.launch {
             startWorkers()
@@ -47,7 +49,7 @@ class Crawler(
         enqueueNext(listOf(seed), this)
 
         workers.joinAll()
-        tasks.close()
+        taskChannel.close()
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -55,25 +57,16 @@ class Crawler(
         repeat(workersNum) { i ->
             val worker = launch {
                 while (isActive) {
-                    val task = tasks.receive()
+                    val task = taskChannel.receive()
 
                     log.debug { "Worker $i started on $task" }
-                    val next = task.execute()
+                    val nextLinks = task.execute()
                     pending.decrementAndGet()
-                    log.debug { "Worker $i finished $task. Seen ${seen.size}" }
-                    log.debug { ">pending ${pending.get()}" }
+                    log.debug { "Worker $i finished $task. Found ${nextLinks.size} next links. Seen ${enqueued.size}" }
 
-                    for (nxt in next) {
-                        workersScope.launch(Dispatchers.Default) {
-                            tasks.send(Task(nxt))
-                        }
-                        pending.incrementAndGet()
-                    }
-                    log.debug { ">>pending ${pending.get()}" }
+                    enqueueNext(nextLinks, workersScope)
 
-                    log.debug { ">>>pending ${pending.get()}" }
-
-                    if (tasks.isEmpty && pending.get() <= 0) {
+                    if (taskChannel.isEmpty && pending.get() <= 0) {
                         log.debug { "Stopping workers" }
                         workersScope.cancel()
                     }
@@ -83,41 +76,38 @@ class Crawler(
         }
     }
 
-    private fun enqueueNext(next: List<Node>, scope: CoroutineScope) {
-
-        scope.launch(Dispatchers.Default) {
-            for (nxt in next) {
-                tasks.send(Task(nxt))
-                pending.incrementAndGet()
+    private fun enqueueNext(nextLinks: List<Link>, scope: CoroutineScope) {
+        for (link in nextLinks) {
+            scope.launch(Dispatchers.Default) {
+                taskChannel.send(Task(link))
             }
+            pending.incrementAndGet()
         }
     }
 
 
-    inner class Task(private val node: Node) {
+    inner class Task(private val link: Link) {
 
-        suspend fun execute(): List<Node> {
+        suspend fun execute(): List<Link> {
 //            delay(1000L)                                                    // TODO throttle requests
             return try {
-                val document = webClient.fetchDocument(node.url)
-                val links = parser.extractLinks(document).map { Node(it) }
-                node.children.addAll(links)
-                log.debug { ">>> all from ${node.url}: $links" }
+                val document = webClient.fetchDocument(link.url)
+                val links = parser.extractLinks(document)
+                link.addChildren(links)
+
                 mutex.withLock {
-                    val nextLinks = links.filter { !seen.contains(it.url) }
-                    log.debug { ">>> next from ${node.url}: $nextLinks" }
-                    seen.addAll(links.map { it.url })
-//                    seen.add(node.url)
-                    log.debug { ">>> seen $seen" }
+                    val nextLinks = links.filter { !enqueued.contains(it.url) }
+                    enqueued.add(link.url)
+                    enqueued.addAll(links.map { it.url })   // make sure we don't enqueue same links over and over, e.g. "About" from the footer
                     return nextLinks
                 }
 
             } catch (e: Exception) {                                                // TODO catch properly
-                log.error { "Could not crawl ${node.url}. Reason: $e" }
+                log.error { "Could not crawl ${link.url}. Reason: $e" }
                 listOf()
             }
         }
 
-        override fun toString(): String = node.url
+        override fun toString(): String = link.url
     }
 }
