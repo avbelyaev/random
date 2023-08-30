@@ -32,7 +32,7 @@ class Crawler(
     private val enqueued = mutableSetOf<String>()
     private val mutex = Mutex()
 
-    private val taskChannel = Channel<Task>(capacity = Channel.UNLIMITED)  // serves as a blocking queue between coroutines
+    private val taskChannel = Channel<Task>(capacity = Channel.UNLIMITED)  // blocking queue for coroutines
     private val workers = mutableListOf<Job>()
     private val workersScope = CoroutineScope(Dispatchers.Unconfined)
 
@@ -48,7 +48,7 @@ class Crawler(
         log.info { "Crawling $seed" }
         enqueueNext(listOf(seed), this)
 
-        workers.joinAll()
+        workers.joinAll()       // wait for all coroutines to finish and close the channel
         taskChannel.close()
     }
 
@@ -61,12 +61,12 @@ class Crawler(
 
                     log.debug { "Worker $i started on $task" }
                     val nextLinks = task.execute()
-                    pending.decrementAndGet()
+                    pending.decrementAndGet()       // no matter what's the outcome, mark this as done
                     log.debug { "Worker $i finished $task. Found ${nextLinks.size} next links. Seen ${enqueued.size}" }
 
                     enqueueNext(nextLinks, workersScope)
 
-                    if (taskChannel.isEmpty && pending.get() <= 0) {
+                    if (taskChannel.isEmpty && pending.get() <= 0) {    // make sure work queue is empty and nothing in-flight
                         log.debug { "Stopping workers" }
                         workersScope.cancel()
                     }
