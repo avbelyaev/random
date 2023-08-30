@@ -4,7 +4,7 @@ data class Link(
     val url: String,
     val children: MutableSet<Link> = mutableSetOf()
 ) {
-    fun addChildren(children: List<Link>) = children
+    fun addChildren(childLinks: List<Link>) = children.addAll(childLinks)
 
     fun asTree() = asTree(1)
 

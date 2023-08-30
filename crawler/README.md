@@ -1,23 +1,30 @@
 # Crawler
 
-Kotlin coroutine-based web crawler. 
-Coroutines API turned out to be still in experimental state
+Kotlin coroutine-based web crawler scoped to domain.
 
 Limitations
 - web client doesnt have retries, connection timeouts , doesnt throttle
 - queue doesnt persist
 - doesnt handle exceptions granularly
-- might be more efficient :)
+- might be more efficient :) 
+- Coroutines API turned out to be still in experimental state
 
 
-## Build & run
+## Build
 ```
 ./gradlew clean jar
 ```
 
 ## Run
-```
+```bash
+# help
+java -jar build/libs/crawler-1.0.jar --help
+
+# run with default params
 java -jar build/libs/crawler-1.0.jar
+
+# run with custom params
+java -jar build/libs/crawler-1.0.jar --url http://my.site.com --domain my.site --workers 5
 ```
 
 ## E2E test
