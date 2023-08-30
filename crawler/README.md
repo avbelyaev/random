@@ -27,3 +27,11 @@ http://localhost:9997/index.html
 . . http://localhost:9997/baz
 . http://localhost:9997/about
 ```
+
+And with cyclic links
+```
+http://localhost:9997/cycle/cycle-a.html       <----
+. http://localhost:9997/cycle/cycle-b.html          |
+. . http://localhost:9997/cycle/cycle-c.html        |
+. . . http://localhost:9997/cycle/cycle-a.html  ---- 
+```
