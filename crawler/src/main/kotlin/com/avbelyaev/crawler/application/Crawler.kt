@@ -64,7 +64,9 @@ class Crawler(
                     log.debug { ">pending ${pending.get()}" }
 
                     for (nxt in next) {
-                        tasks.send(Task(nxt))
+                        workersScope.launch(Dispatchers.Default) {
+                            tasks.send(Task(nxt))
+                        }
                         pending.incrementAndGet()
                     }
                     log.debug { ">>pending ${pending.get()}" }
@@ -95,15 +97,18 @@ class Crawler(
     inner class Task(private val node: Node) {
 
         suspend fun execute(): List<Node> {
-            delay(1000L)                                                    // TODO throttle requests
+//            delay(1000L)                                                    // TODO throttle requests
             return try {
                 val document = webClient.fetchDocument(node.url)
                 val links = parser.extractLinks(document).map { Node(it) }
                 node.children.addAll(links)
-                log.debug { ">>> links from ${node.url}: $links" }
+                log.debug { ">>> all from ${node.url}: $links" }
                 mutex.withLock {
                     val nextLinks = links.filter { !seen.contains(it.url) }
+                    log.debug { ">>> next from ${node.url}: $nextLinks" }
                     seen.addAll(links.map { it.url })
+//                    seen.add(node.url)
+                    log.debug { ">>> seen $seen" }
                     return nextLinks
                 }
 
