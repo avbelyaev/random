@@ -16,7 +16,7 @@ fun main(args: Array<String>) = runBlocking {
 
     val parser = Parser(scopedToDomain = MONZO)
     val webClient = WebClient(requestTimeoutSec = 5)
-    val crawler = Crawler(workersNum = 3, webClient, parser)
+    val crawler = Crawler(workersNum = 10, webClient, parser)
 
     val seed = Node(MONZO_URL)
 

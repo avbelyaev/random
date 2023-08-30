@@ -15,8 +15,6 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
 
-
-
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("org.jsoup:jsoup:1.16.1")
@@ -25,6 +23,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.7")
 
     testImplementation(kotlin("test"))
+    testImplementation("com.github.tomakehurst:wiremock-jre8:2.35.0")
 }
 
 tasks.test {
