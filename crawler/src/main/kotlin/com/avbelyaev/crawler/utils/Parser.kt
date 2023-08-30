@@ -10,7 +10,7 @@ class Parser(private val scopedToDomain: String) {
         document.select("a[href*=#]").remove() // remove links starting with `#` e.g. https://monzo.com#mainContent
         return document.select("a").asSequence()
             .map { sanitizeUrl(it) }
-            .filter { it.startsWith("http") }
+            .filter { it.startsWith("http") && !it.endsWith(".pdf") }
             .filter { getDomainName(it) == scopedToDomain }
             .distinct()
             .toList()
