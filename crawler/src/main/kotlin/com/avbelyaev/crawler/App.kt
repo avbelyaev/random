@@ -9,12 +9,12 @@ import com.xenomachina.argparser.default
 import com.xenomachina.argparser.mainBody
 
 
-val MONZO = "monzo.com"
-val MONZO_URL = "https://$MONZO"
+val DEFAULT_DOMAIN = "my.website.com"
+val DEFAULT_URL = "https://$DEFAULT_DOMAIN"
 
 class Args(parser: ArgParser) {
-    val url by parser.storing("seed url for crawling. Default: $MONZO_URL").default(MONZO_URL)
-    val domain by parser.storing("scope crawling to this domain only. Default: $MONZO").default(MONZO)
+    val url by parser.storing("seed url for crawling. Default: $DEFAULT_URL").default(DEFAULT_URL)
+    val domain by parser.storing("scope crawling to this domain only. Default: $DEFAULT_DOMAIN").default(DEFAULT_DOMAIN)
     val workers by parser.storing("number of workers. Default: 3") { toInt() }.default(3)
 }
 

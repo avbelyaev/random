@@ -8,7 +8,7 @@ import java.net.URI
 class Parser(private val scopedToDomain: String) {
 
     fun extractLinks(document: Document): List<Link> {
-        document.select("a[href*=#]").remove() // remove links starting with `#` e.g. https://monzo.com#mainContent
+        document.select("a[href*=#]").remove() // remove links starting with `#` e.g. https://website.com#mainContent
         return document.select("a").asSequence()
             .map { sanitizeUrl(it) }
             .filter { it.startsWith("http") && !it.endsWith(".pdf") }
