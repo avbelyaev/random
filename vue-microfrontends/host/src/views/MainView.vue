@@ -1,8 +1,9 @@
 <template>
   <div class="main">
     <p>Main page</p>
-    <p>Hi, {{ $store.getters.fullName }} !</p>
-    <remote-feed-element/>
+    <p>Hi, {{ this.$store.getters.fullName }} !</p>
+    <Feed />
+    <p>Count from store: {{ cnt }} </p>
 <!--    <button @click="updateQuantity(2)">-->
 <!--      Btn-->
 <!--    </button>-->
@@ -10,11 +11,17 @@
 </template>
 
 <script>
-// import {useStoreData} from "../store";
-// const {updateQuantity} = useStoreData();
+import Feed from 'remoteApp/Feed';
 
 export default {
-name: 'MainView',
-
+  name: 'MainView',
+  components: {
+    Feed
+  },
+  computed: {
+    cnt() {
+      return this.$store.state.count
+    }
+  },
 }
 </script>

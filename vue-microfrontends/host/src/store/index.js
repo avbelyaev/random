@@ -15,13 +15,18 @@ import { createStore } from 'vuex'
 //     }
 // })
 const store = createStore({
-    state: {
+    state() {
+       return {
+           count: 1338
+       };
+    },
+    storeX: {
         firstName: 'John',
         lastName: 'Doe'
     },
     getters: {
-        fullName: function (state) {
-            return `mr. ${state.firstName} ${state.lastName}`
+        fullName: function (storeX) {
+            return `mr. ${storeX.firstName} ${storeX.lastName}`
         }
     },
 });

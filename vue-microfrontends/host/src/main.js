@@ -33,8 +33,4 @@ const router = createRouter({
 const app = createApp(App)
 app.use(router);
 app.use(store);
-
-const RemoteFeed = defineAsyncComponent(() => import('remoteApp/Feed'));
-app.component('remote-feed-element', RemoteFeed);
-
 app.mount('#app');
