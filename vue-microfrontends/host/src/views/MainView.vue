@@ -1,14 +1,11 @@
 <template>
   <div class="main">
-    <p>Main page</p>
-    <p>Hi, {{ this.$store.getters.fullName }}. Your score is {{ cnt }}</p>
+    <p>Hi, {{ this.$store.getters.fullName }}. Your score is {{ score }}</p>
     <button @click="addScore">
-      Add +1 score
+      Inc from host v
     </button>
-    <p>Host store: {{ this.$store.state }} !</p>
-    <h4>Your feed from a remote app</h4>
-    <Feed />
   </div>
+  <Feed />
 </template>
 
 <script>
@@ -20,13 +17,13 @@ export default {
     Feed
   },
   computed: {
-    cnt() {
-      return this.$store.state.count
+    score() {
+      return this.$store.state.score
     }
   },
   methods: {
     addScore() {
-      this.$store.state.count += 1
+      this.$store.state.score += 13
     }
   }
 }

@@ -1,23 +1,26 @@
 <template>
   <div id="app">
     <div class="nav">
-      <p>This is remote app</p>
+      <h2>This is remote app</h2>
       <p>
         <router-link to="/feed">Feed</router-link> |
         <router-link to="/logins">Login</router-link>
       </p>
     </div>
     <router-view/>
+    <p>App state: {{ this.$store.state }}</p>
   </div>
 </template>
 
+
 <style scoped>
 #app {
-  width: 300px;
+  width: 400px;
+  height: 400px;
+  background-color: darkorange;
 }
 
 .nav {
-  background-color: hotpink;
   text-align: center;
 }
 </style>

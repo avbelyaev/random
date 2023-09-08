@@ -1,7 +1,6 @@
 # MicroFrontends Vue
 
 ```
-
     ---------------------             ---------------------
     |     Host app      |             |     Remote app    |
     |                   |             |                   |
@@ -13,8 +12,18 @@
 
 ```
 
-стор не шарится. см ссылки ниже (и ютюб) чтобы шарился
+## Remote app
+- exports news feed
 
+<img src="pics/remote.png" alt="isolated" width="300"/>
+
+## Host app
+- imports news feed from remote app
+
+<img src="pics/host.png" alt="isolated" width="500"/>
+
+
+## Links
 useful
 - https://medium.com/geekculture/implementing-webpacks-module-federation-in-a-vue-2-application-38997c696094
 - https://github.com/module-federation/module-federation-examples/blob/master/vue-cli/core/vue.config.js
@@ -26,3 +35,6 @@ state:
 - good guy
   - https://www.youtube.com/watch?v=njXeMeAu4Sg&t=356s
   - and vue shared store https://www.youtube.com/watch?v=LAu1p6tmj_Y&t=1564s
+
+## ne rabotaet
+- стор внутри ремоут аппа не виден из хост аппа. может бай дизайн а может можно увидеть

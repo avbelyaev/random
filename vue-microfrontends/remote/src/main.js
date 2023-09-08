@@ -1,9 +1,10 @@
-import {createApp, defineAsyncComponent} from 'vue';
+import {createApp} from 'vue';
 import App from './App.vue';
 import {createRouter, createWebHistory} from "vue-router"
 
 import LoginsView from "./logins/LoginsView";
 import FeedView from "./feed/FeedView";
+import {createStore} from "vuex";
 
 const routes = [
     {
@@ -28,11 +29,16 @@ const router = createRouter({
     routes : routes
 })
 
+const store = createStore({
+    state() {
+        return {
+            score: 1,
+            banner: 'Here can be your ads!'
+        };
+    }
+})
+
 const app = createApp(App)
 app.use(router);
-
-// const RemoteStore = defineAsyncComponent(() => import('hostApp/store'));
-// app.component('remote-store', RemoteStore);
-
-
+app.use(store);
 app.mount('#app');

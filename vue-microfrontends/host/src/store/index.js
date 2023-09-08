@@ -6,7 +6,7 @@ const store = createStore({
             firstName: 'John',
             lastName: 'Doe'
         },
-        count: 1338,
+        score: 1337,
     },
     getters: {
         fullName(state) {
