@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <p>This is host app</p>
+      <h2>This is Host app</h2>
       <nav>
         <router-link to="/main">Main</router-link> |
         <router-link to="/about">About</router-link> |
