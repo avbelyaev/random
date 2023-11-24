@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const {ModuleFederationPlugin} = require('webpack').container;
+const {ModuleFederationPlugin} = require('webpack').container;
 
-// const deps = require('./package.json').dependencies;
 
 module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
@@ -53,27 +52,23 @@ module.exports = {
         ],
     },
     plugins: [
-        // new ModuleFederationPlugin({
-        //   name: 'remoteApp',
-        //   filename: 'remoteEntry.js',
-        //   exposes: {
-        //     './Feed': './src/feed/Feed',
-        //     './LoginsView': './src/logins/LoginsView',
-        //   },
-        //   remotes: {
-        //     hostApp: 'hostApp@http://localhost:5001/remoteEntry.js'
-        //   },
-        //   shared: {
-        //     vue: {
-        //       singleton: true,
-        //       eager: true
-        //     },
-        //   },
-        // }),
-        // new webpack.HotModuleReplacementPlugin(),
-        // new MiniCssExtractPlugin({
-        //     filename: '[name].css',
-        // }),
+        new ModuleFederationPlugin({
+            name: 'reactRemoteApp',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './Logo': './src/Logo',
+            },
+            shared: {
+                react: {
+                    singleton: true,
+                    eager: true
+                },
+                "react-dom": {
+                    singleton: true,
+                    eager: true
+                },
+            }
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
         }),
