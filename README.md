@@ -9,4 +9,6 @@
 - Pandas read/write csv/excel and send as gmail
 - Build AWS Lambda image with JIB
 - Zenly
-- MicroFrontends
+- MicroFrontends (MFE)
+- KEDA (Kubernetes Event Driven Autoscaler)
+

@@ -1,0 +1,31 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: kafka-consumer-keda-scaled-object
+  namespace: a-m
+
+spec:
+  scaleTargetRef:
+    name: kafka-consumer
+  pollingInterval:  10                                      # Optional. Default: 30 seconds
+  cooldownPeriod:   30                                      # Optional. Default: 300 seconds
+  minReplicaCount:  1                                       # Optional. Default: 0
+  maxReplicaCount:  100                                     # Optional. Default: 100
+  fallback:                                                 # Optional. Section to specify fallback options
+    failureThreshold: 3                                     # Mandatory if fallback section is included
+    replicas: 6                                             # Mandatory if fallback section is included
+  advanced:                                                 # Optional. Section to specify advanced options
+    horizontalPodAutoscalerConfig:                          # Optional. Section to specify HPA related options
+      behavior:                                             # Optional. Use to modify HPA's scaling behavior
+        scaleDown:
+          stabilizationWindowSeconds: 120
+
+  triggers:
+  - type: kafka
+    metadata:
+      bootstrapServers: kafka:9092
+      consumerGroup: mygroup1
+      topic: mytopic1
+      lagThreshold: '2'             # метрика / число_реплик >= 2   -> scale
+      offsetResetPolicy: latest
+      allowIdleConsumers: "true"    # сделать консьюмеров больше  чем партиций, просто они будут idle
